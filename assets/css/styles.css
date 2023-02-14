@@ -3,6 +3,7 @@
 :root{
     --primary-color: #071620;
     --secondary-color: #007CC7;
+    /* #12232E */
 }
 body{
     font-family: 'Poppins', sans-serif;
@@ -49,4 +50,20 @@ body{
 
 .sec-bg{
     background-color: var(--secondary-color);
+}
+
+#recommendedCars{
+    margin-top: 10rem;
+}
+
+#aboutUs{
+    margin-top: 10rem;
+}
+
+#contactUs{
+    background-image: url(https://media.discordapp.net/attachments/1022963358066016256/1074990235080986644/image.png?width=1255&height=670);
+}
+.form-control{
+    border: none;
+    /* background-color: #152836; */
 }
