@@ -25,6 +25,7 @@ body{
     border: 2px solid #060609;
     border-radius: 4px;
     padding: 8px;
+    margin: 1px;
 }
 
 .btn-prim{
@@ -69,3 +70,4 @@ body{
 #searchBar input{
     border: none;
 }
+
