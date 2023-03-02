@@ -77,3 +77,9 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+#signupSection{
+    background-image: url(https://media.discordapp.net/attachments/1022963358066016256/1080800961641070672/banner.png?width=1440&height=629);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
