@@ -38,3 +38,4 @@ if ( thumbnail ) {
 splide.mount();
 
 
+//text truncate
