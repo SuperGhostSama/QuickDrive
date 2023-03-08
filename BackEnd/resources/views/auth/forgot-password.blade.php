@@ -3,7 +3,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <a class="navbar-brand fw-bold text-white fs-1" href="index.html">QUICKDRIVE</a>
+            <a class="navbar-brand fw-bold text-white fs-1" href="{{'/'}}">QUICKDRIVE</a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
