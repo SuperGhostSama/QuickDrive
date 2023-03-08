@@ -83,3 +83,6 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+.bg-gray-100 {
+    background-color: #060609!important;
+}
