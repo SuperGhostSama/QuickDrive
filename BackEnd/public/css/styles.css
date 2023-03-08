@@ -83,6 +83,17 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+
+/* forgot password blade style  */
 .bg-gray-100 {
     background-color: #060609!important;
+}
+.bg-white {
+    background-color: #071620!important;
+}
+.text-gray-600 {
+    color: white!important;
+}
+.text-gray-700 { 
+    color: white!important;
 }
