@@ -3,9 +3,6 @@
 ## 1 - Company Presentation:
 
 QuickDrive a car rental company dedicated to providing fast and convenient vehicle rental options to our customers.
-1-2 Website Name:
-
-QuickDrive
 
 ## 2 - Target addressed by the site:
 
