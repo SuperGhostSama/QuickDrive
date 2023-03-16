@@ -32,7 +32,10 @@ In addition to a wide range of vehicle options, we also offer flexible rental te
 Overall, QuickDrive is a reliable and efficient choice for car rentals, offering a wide selection of vehicles, flexible rental terms, and additional services to make the process as smooth as possible.
 
 ## 6 - Choice of technology:
+
 In the front-end we will use HTML, CSS , BOOTSTRAP and JAVASCRIPT. 
+
 On the back-end the site must be made with PHP framework Laravel.
+
 The site must be compatible with all standard browsers: Google Chrome, Android, Mozilla FireFox, Internet Explorer, Safari and Opera. Compatible versions must be clearly identified by the provider).
 
