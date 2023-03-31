@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResetPasswordController;
 
 /*
@@ -51,3 +52,9 @@ Route::get('/cars/{car}', [CarsController::class, 'show']);
 Route::post('/cars', [CarsController::class, 'store']);
 Route::put('/cars/{car}', [CarsController::class, 'update']);
 Route::delete('/cars/{car}', [CarsController::class, 'destroy']);
+
+// Profile
+Route::group(['controller' => ProfileController::class,'middleware'=>'auth:api'], function () {
+    Route::put('user/{user}','updateProfile')->middleware('permission:edit my profile|edit all profile');
+    Route::delete('user/{user}','deleteProfile')->middleware('permission:delete my profile|delete all profile');
+});
