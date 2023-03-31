@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResetPasswordController;
@@ -63,4 +64,10 @@ Route::group(['controller' => CarsController::class,'middleware'=>'auth:api'], f
 Route::group(['controller' => ProfileController::class,'middleware'=>'auth:api'], function () {
     Route::put('user/{user}','updateProfile')->middleware('permission:edit my profile|edit all profile');
     Route::delete('user/{user}','deleteProfile')->middleware('permission:delete my profile|delete all profile');
+});
+
+//Roles
+Route::group(['controller' => RolesController::class,'middleware'=>'auth:api'], function () {
+    Route::post('assign-role/{id}', 'assignRole')->middleware('permission:assign role');
+    Route::post('remove-role/{id}', 'removeRole')->middleware('permission:assign role');
 });
