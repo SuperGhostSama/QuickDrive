@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             BrandsTableSeeder::class,
             FuelTypesTableSeeder::class,
             TransmissionsTableSeeder::class,
+            CarStatusesTableSeeder::class,
         ]);
     }
 }
