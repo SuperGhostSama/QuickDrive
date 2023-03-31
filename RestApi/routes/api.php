@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ProfileController;
@@ -71,3 +72,6 @@ Route::group(['controller' => RolesController::class,'middleware'=>'auth:api'], 
     Route::post('assign-role/{id}', 'assignRole')->middleware('permission:assign role');
     Route::post('remove-role/{id}', 'removeRole')->middleware('permission:assign role');
 });
+
+//Fetch all users
+Route::get('users',[UserController::class,'index']);
