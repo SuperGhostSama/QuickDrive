@@ -28,5 +28,5 @@ Steps to follow to finish project :
 2-Permissions X
 3-Brands Crud X
 4-BodyTypes FuelTypes Transmissions seeder X
-5-Car Status table
-6-Car Crud
+5-Car Status table X
+6-Car Crud 

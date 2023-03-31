@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CarsController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ResetPasswordController;
 
@@ -44,4 +45,9 @@ Route::get('/brands/{brand}', [BrandsController::class, 'show']);
 Route::put('/brands/{brand}', [BrandsController::class, 'update']);
 Route::delete('/brands/{brand}', [BrandsController::class, 'destroy']);
 
-//
+//Cars crud
+Route::get('/cars', [CarsController::class, 'index']);
+Route::get('/cars/{car}', [CarsController::class, 'show']);
+Route::post('/cars', [CarsController::class, 'store']);
+Route::put('/cars/{car}', [CarsController::class, 'update']);
+Route::delete('/cars/{car}', [CarsController::class, 'destroy']);
