@@ -74,4 +74,6 @@ Route::group(['controller' => RolesController::class,'middleware'=>'auth:api'], 
 });
 
 //Fetch all users
-Route::get('users',[UserController::class,'index']);
+Route::group(['controller' => UserController::class,'middleware'=>'auth:api'], function () {
+    Route::get('users','index')->middleware('permission:view all users');
+});

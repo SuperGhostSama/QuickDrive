@@ -44,6 +44,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $assignRole = 'assign role';
 
+        $viewAllUsers = 'view all users';
+
         Permission::create(['name' => $viewMyprofile]);
         Permission::create(['name' => $viewAllprofile]);
         Permission::create(['name' => $editMyProfile]);
@@ -67,6 +69,8 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => $deleteBrand]);
 
         Permission::create(['name' => $assignRole]);
+
+        Permission::create(['name' => $viewAllUsers]);
         
         // Define roles available
         $admin = 'admin';
@@ -91,7 +95,9 @@ class RolesAndPermissionsSeeder extends Seeder
             $addReservation,
             $viewMyReservation,
             $viewAllReservations,
-            $deleteAllReservations
+            $deleteAllReservations,
+
+            $viewAllUsers,
 
         ]);
 
