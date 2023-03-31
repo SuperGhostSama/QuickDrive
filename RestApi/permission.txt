@@ -30,4 +30,5 @@ Steps to follow to finish project :
 4-BodyTypes FuelTypes Transmissions seeder X
 5-Car Status table X
 6-Car Crud X
-7- 
+7-Update & Delete profile X
+8-
