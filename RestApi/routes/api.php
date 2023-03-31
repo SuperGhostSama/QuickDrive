@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,22 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-
+//Authentification
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
+});
+
+//Forgot-Reset password 
+Route::group(['controller' => ResetPasswordController::class], function (){
+    // Request password reset link
+    Route::post('forgot-password', 'sendResetLinkEmail')->middleware('guest')->name('password.email');
+    // Reset password
+    Route::post('reset-password', 'resetPassword')->middleware('guest')->name('password.update');
+
+    Route::get('reset-password/{token}', function (string $token) {
+         return $token;
+     })->middleware('guest')->name('password.reset');
 });
