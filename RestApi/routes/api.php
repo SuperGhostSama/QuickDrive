@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ResetPasswordController;
 
 /*
@@ -35,3 +36,10 @@ Route::group(['controller' => ResetPasswordController::class], function (){
          return $token;
      })->middleware('guest')->name('password.reset');
 });
+
+//Brands
+Route::get('/brands', [BrandsController::class, 'index']);
+Route::post('/brands', [BrandsController::class, 'store']);
+Route::get('/brands/{brand}', [BrandsController::class, 'show']);
+Route::put('/brands/{brand}', [BrandsController::class, 'update']);
+Route::delete('/brands/{brand}', [BrandsController::class, 'destroy']);
