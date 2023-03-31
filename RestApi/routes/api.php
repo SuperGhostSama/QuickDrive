@@ -41,10 +41,13 @@ Route::group(['controller' => ResetPasswordController::class], function (){
 
 //Brands
 Route::get('/brands', [BrandsController::class, 'index']);
-Route::post('/brands', [BrandsController::class, 'store']);
 Route::get('/brands/{brand}', [BrandsController::class, 'show']);
-Route::put('/brands/{brand}', [BrandsController::class, 'update']);
-Route::delete('/brands/{brand}', [BrandsController::class, 'destroy']);
+
+Route::group(['controller' => BrandsController::class,'middleware'=>'auth:api'], function () {
+    Route::post('/brands','store')->middleware('permission:add brand');;
+    Route::put('/brands/{brand}','update')->middleware('permission:edit brand');;
+    Route::delete('/brands/{brand}','destroy')->middleware('permission:delete brand');;
+});
 
 //Cars crud
 Route::get('/cars', [CarsController::class, 'index']);
