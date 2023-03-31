@@ -49,9 +49,12 @@ Route::delete('/brands/{brand}', [BrandsController::class, 'destroy']);
 //Cars crud
 Route::get('/cars', [CarsController::class, 'index']);
 Route::get('/cars/{car}', [CarsController::class, 'show']);
-Route::post('/cars', [CarsController::class, 'store']);
-Route::put('/cars/{car}', [CarsController::class, 'update']);
-Route::delete('/cars/{car}', [CarsController::class, 'destroy']);
+
+Route::group(['controller' => CarsController::class,'middleware'=>'auth:api'], function () {
+    Route::post('/cars','store')->middleware('permission:add car');
+    Route::put('/cars/{car}', 'update')->middleware('permission:edit all cars');
+    Route::delete('/cars/{car}', 'destroy')->middleware('permission:delete all cars');
+});
 
 // Profile
 Route::group(['controller' => ProfileController::class,'middleware'=>'auth:api'], function () {
