@@ -43,3 +43,5 @@ Route::post('/brands', [BrandsController::class, 'store']);
 Route::get('/brands/{brand}', [BrandsController::class, 'show']);
 Route::put('/brands/{brand}', [BrandsController::class, 'update']);
 Route::delete('/brands/{brand}', [BrandsController::class, 'destroy']);
+
+//
