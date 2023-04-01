@@ -7,6 +7,7 @@ use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
@@ -98,5 +99,7 @@ Route::group(['controller' => ContactController::class,'middleware'=>'auth:api']
     Route::delete('contacts/{id}','destroy')->middleware('permission:delete contacts');
 });
 
+//Search
+Route::get('search', [SearchController::class, 'search']);
 
 
