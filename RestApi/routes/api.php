@@ -7,6 +7,7 @@ use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ResetPasswordController;
@@ -86,6 +87,15 @@ Route::group(['controller' => ReservationController::class,'middleware'=>'auth:a
     Route::post('reservations','store')->middleware('permission:add reservation');
     Route::put('reservations/{id}','update')->middleware('permission:update reservations');
     Route::delete('reservations/{id}','destroy')->middleware('permission:delete my reservation|delete all reservations');
+});
+
+//Contact Us
+Route::post('contacts', [ContactController::class, 'store']);
+
+Route::group(['controller' => ContactController::class,'middleware'=>'auth:api'], function () {
+    Route::get('contacts','index')->middleware('permission:view all contacts');
+    Route::get('contacts/{id}','show')->middleware('permission:view one contacts');
+    Route::delete('contacts/{id}','destroy')->middleware('permission:delete contacts');
 });
 
 

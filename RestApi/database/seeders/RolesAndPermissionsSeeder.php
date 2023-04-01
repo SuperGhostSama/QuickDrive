@@ -47,6 +47,10 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $viewAllUsers = 'view all users';
 
+        $viewAllContacts = 'view all contacts';
+        $viewOneContacts = 'view one contacts';
+        $DeleteContacts = 'delete contacts';
+
         Permission::create(['name' => $viewMyprofile]);
         Permission::create(['name' => $viewAllprofile]);
         Permission::create(['name' => $editMyProfile]);
@@ -73,6 +77,10 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => $assignRole]);
 
         Permission::create(['name' => $viewAllUsers]);
+
+        Permission::create(['name' => $viewAllContacts]);
+        Permission::create(['name' => $viewOneContacts]);
+        Permission::create(['name' => $DeleteContacts]);
         
         // Define roles available
         $admin = 'admin';
@@ -101,6 +109,10 @@ class RolesAndPermissionsSeeder extends Seeder
             $deleteAllReservations,
 
             $viewAllUsers,
+
+            $viewAllContacts,
+            $viewOneContacts,
+            $DeleteContacts,
 
         ]);
 
