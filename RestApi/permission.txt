@@ -33,4 +33,4 @@ Steps to follow to finish project :
 7-Update & Delete profile X
 8-adding middleware permissions in API.PHP X
 9-making it possible to assign and delete roles X
-10-
+10-Reservation crud 

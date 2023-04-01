@@ -29,6 +29,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $addReservation ='add reservation';
         $viewMyReservation ='view my reservation';
         $viewAllReservations ='view all reservations';
+        $updateReservations ='update reservations';
         $deleteMyReservation ='delete my reservation';
         $deleteAllReservations ='delete all reservations';
 
@@ -56,6 +57,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => $addReservation]);
         Permission::create(['name' => $viewMyReservation]);
         Permission::create(['name' => $viewAllReservations]);
+        Permission::create(['name' => $updateReservations]);
         Permission::create(['name' => $deleteMyReservation]);
         Permission::create(['name' => $deleteAllReservations]);
 
@@ -95,6 +97,7 @@ class RolesAndPermissionsSeeder extends Seeder
             $addReservation,
             $viewMyReservation,
             $viewAllReservations,
+            $updateReservations,
             $deleteAllReservations,
 
             $viewAllUsers,

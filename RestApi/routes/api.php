@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ResetPasswordController;
 
 /*
@@ -77,3 +78,15 @@ Route::group(['controller' => RolesController::class,'middleware'=>'auth:api'], 
 Route::group(['controller' => UserController::class,'middleware'=>'auth:api'], function () {
     Route::get('users','index')->middleware('permission:view all users');
 });
+
+//Reservation
+Route::group(['controller' => ReservationController::class,'middleware'=>'auth:api'], function () {
+    Route::get('reservations','index')->middleware('permission:view all reservations');
+    Route::get('reservations/{id}','show')->middleware('permission:view my reservation|view all reservations');
+    Route::post('reservations','store')->middleware('permission:add reservation');
+    Route::put('reservations/{id}','update')->middleware('permission:update reservations');
+    Route::delete('reservations/{id}','destroy')->middleware('permission:delete my reservation|delete all reservations');
+});
+
+
+

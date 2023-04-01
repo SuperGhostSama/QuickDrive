@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             TransmissionsTableSeeder::class,
             CarStatusesTableSeeder::class,
             CarsTableSeeder::class,
+            ReservationSeeder::class,
         ]);
     }
 }
