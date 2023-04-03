@@ -13,7 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function()
+{
+   return View::make('pages.home');
 });
+
+Route::get('/allcars', function()
+{
+   return View::make('pages.allcars');
+});
+
+Route::get('/cardetail', function()
+{
+   return View::make('pages.cardetail');
+});
+
+Route::get('/login', function()
+{
+   return View::make('pages.login');
+});
+
+Route::get('/register', function()
+{
+   return View::make('pages.register');
+});
+
+Route::get('/dashboard', function()
+{
+   return View::make('pages.dashboard');
+});
+
 
