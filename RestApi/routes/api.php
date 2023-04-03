@@ -100,6 +100,6 @@ Route::group(['controller' => ContactController::class,'middleware'=>'auth:api']
 });
 
 //Search
-Route::get('search', [SearchController::class, 'search']);
+Route::get('search/{search}', [SearchController::class, 'search']);
 
 
