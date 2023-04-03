@@ -10,7 +10,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ url('dashboard') }}">
                 <span class="icon">
                     <ion-icon name="home-outline"></ion-icon>
                 </span>
@@ -19,7 +19,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ url('dashboard-cars') }}">
                 <span class="icon">
                     <ion-icon name="car-outline"></ion-icon>
                 </span>
@@ -28,7 +28,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ url('dashboard-brands') }}">
                 <span class="icon">
                     <ion-icon name="chatbubble-outline"></ion-icon>
                 </span>
@@ -37,7 +37,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ url('dashboard-users') }}">
                 <span class="icon">
                     <ion-icon name="people-outline"></ion-icon>
                 </span>
@@ -46,7 +46,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ url('dashboard-contactus') }}">
                 <span class="icon">
                     <ion-icon name="mail-outline"></ion-icon>
                 </span>
@@ -55,7 +55,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ url('dashboard-reservations') }}">
                 <span class="icon">
                     <ion-icon name="card-outline"></ion-icon>
                 </span>
@@ -64,7 +64,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{ url('dashboard-profile') }}">
                 <span class="icon">
                     <ion-icon name="settings-outline"></ion-icon>
                 </span>
@@ -82,3 +82,15 @@
         </li>
     </ul>
 </div>
+
+<!-- ========================= Main ==================== -->
+<div class="main">
+    <div class="topbar">
+        <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+
+        <div class="user">
+            <img src="{{ asset('img/customer01.jpg') }}" alt="">
+        </div>
+    </div>

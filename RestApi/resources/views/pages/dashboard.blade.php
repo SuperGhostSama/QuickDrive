@@ -5,17 +5,6 @@
 <div class="containers">
     @include('includes.dashboard-sidebar')
 
-    <!-- ========================= Main ==================== -->
-    <div class="main">
-        <div class="topbar">
-            <div class="toggle">
-                <ion-icon name="menu-outline"></ion-icon>
-            </div>
-
-            <div class="user">
-                <img src="{{ asset('img/customer01.jpg') }}" alt="">
-            </div>
-        </div>
 
         @include('includes.dashboard-cards')
 

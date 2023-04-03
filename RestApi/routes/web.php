@@ -58,5 +58,31 @@ Route::get('/dashboard-cars', function()
    return View::make('pages.dashboard-cars');
 });
 
+Route::get('/dashboard-brands', function()
+{
+   return View::make('pages.dashboard-brands');
+});
+
+Route::get('/dashboard-users', function()
+{
+   return View::make('pages.dashboard-users');
+});
+
+Route::get('/dashboard-contactus', function()
+{
+   return View::make('pages.dashboard-contactus');
+});
+
+Route::get('/dashboard-reservations', function()
+{
+   return View::make('pages.dashboard-reservations');
+});
+
+Route::get('/dashboard-profile', function()
+{
+   return View::make('pages.dashboard-profile');
+});
+
+
 
 
