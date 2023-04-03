@@ -38,9 +38,25 @@ Route::get('/register', function()
    return View::make('pages.register');
 });
 
+Route::get('/forgot-password', function()
+{
+   return View::make('pages.forgot-password');
+});
+
+Route::get('/reset-password', function()
+{
+   return View::make('pages.reset-password');
+});
+
 Route::get('/dashboard', function()
 {
    return View::make('pages.dashboard');
 });
+
+Route::get('/dashboard-cars', function()
+{
+   return View::make('pages.dashboard-cars');
+});
+
 
 
