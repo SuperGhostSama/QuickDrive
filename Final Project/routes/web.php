@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,76 +13,83 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('register', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
 
 Route::get('/', function()
 {
    return View::make('pages.home');
 });
 
-Route::get('/allcars', function()
-{
-   return View::make('pages.allcars');
-});
+// Route::get('/allcars', function()
+// {
+//    return View::make('pages.allcars');
+// });
 
-Route::get('/cardetail', function()
-{
-   return View::make('pages.cardetail');
-});
+// Route::get('/cardetail', function()
+// {
+//    return View::make('pages.cardetail');
+// });
 
-Route::get('/login', function()
-{
-   return View::make('pages.login');
-});
+// Route::get('/login', function()
+// {
+//    return View::make('pages.login');
+// });
 
-Route::get('/register', function()
-{
-   return View::make('pages.register');
-});
+// Route::get('/register', function()
+// {
+//    return View::make('pages.register');
+// });
 
-Route::get('/forgot-password', function()
-{
-   return View::make('pages.forgot-password');
-});
+// Route::get('/forgot-password', function()
+// {
+//    return View::make('pages.forgot-password');
+// });
 
-Route::get('/reset-password', function()
-{
-   return View::make('pages.reset-password');
-});
+// Route::get('/reset-password', function()
+// {
+//    return View::make('pages.reset-password');
+// });
 
-Route::get('/dashboard', function()
-{
-   return View::make('pages.dashboard');
-});
+// Route::get('/dashboard', function()
+// {
+//    return View::make('pages.dashboard');
+// });
 
-Route::get('/dashboard-cars', function()
-{
-   return View::make('pages.dashboard-cars');
-});
+// Route::get('/dashboard-cars', function()
+// {
+//    return View::make('pages.dashboard-cars');
+// });
 
-Route::get('/dashboard-brands', function()
-{
-   return View::make('pages.dashboard-brands');
-});
+// Route::get('/dashboard-brands', function()
+// {
+//    return View::make('pages.dashboard-brands');
+// });
 
-Route::get('/dashboard-users', function()
-{
-   return View::make('pages.dashboard-users');
-});
+// Route::get('/dashboard-users', function()
+// {
+//    return View::make('pages.dashboard-users');
+// });
 
-Route::get('/dashboard-contactus', function()
-{
-   return View::make('pages.dashboard-contactus');
-});
+// Route::get('/dashboard-contactus', function()
+// {
+//    return View::make('pages.dashboard-contactus');
+// });
 
-Route::get('/dashboard-reservations', function()
-{
-   return View::make('pages.dashboard-reservations');
-});
+// Route::get('/dashboard-reservations', function()
+// {
+//    return View::make('pages.dashboard-reservations');
+// });
 
-Route::get('/dashboard-profile', function()
-{
-   return View::make('pages.dashboard-profile');
-});
+// Route::get('/dashboard-profile', function()
+// {
+//    return View::make('pages.dashboard-profile');
+// });
 
 
 
