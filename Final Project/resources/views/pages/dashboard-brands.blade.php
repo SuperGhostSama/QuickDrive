@@ -5,7 +5,17 @@
 <div class="containers">
     @include('includes.dashboard-sidebar')
 
-    
+    <style>
+        .unstyled{
+            border: none;
+            margin: 0;
+            padding: 0;
+            width: auto;
+            overflow: visible;
+            color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+            background: transparent;
+        }
+    </style>
             <!-- ================ Order Details List ================= -->
         <div class="details">
             <div class="recentOrders">
@@ -24,29 +34,19 @@
                     </thead>
 
                     <tbody>
+                        @foreach ($brands as $brand)
                         <tr>
-                            <td>Toyota</td>
+                            <td>{{ $brand->name }}</td>
                             <td>
-                                <a href=""><ion-icon name="create-outline"></ion-icon></a>
-                                <a href=""><ion-icon name="trash-outline"></ion-icon></a>
+                                <a id="edit-button" onclick="editBrand({{ $brand->id }})" href="#modal-brands-edit" data-bs-toggle="modal"><ion-icon name="create-outline"></ion-icon></a>
+                                <form class="d-inline" method="POST" action="{{ route('brands.destroy', $brand) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="unstyled"><ion-icon name="trash-outline"></ion-icon></button>
+                                </form>
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>Dacia</td>
-                            <td>
-                                <a href=""><ion-icon name="create-outline"></ion-icon></a>
-                                <a href=""><ion-icon name="trash-outline"></ion-icon></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Suzuki</td>
-                            <td>
-                                <a href=""><ion-icon name="create-outline"></ion-icon></a>
-                                <a href=""><ion-icon name="trash-outline"></ion-icon></a>
-                            </td>
-                        </tr>
+                        @endforeach
 
                         
                     </tbody>
@@ -58,4 +58,20 @@
     </div>
 </div>
 @include('includes.brands-modal')
+@include('includes.brands-edit-modal')
+<script>
+    function editBrand(id) {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let brand = JSON.parse(xhr.responseText);
+                document.querySelector('#modal-brands-edit #brand-id').value = brand.id;
+                document.querySelector('#modal-brands-edit #brand').value = brand.name;
+            }
+        }
+        xhr.open("GET", "brands/" + id, true);
+        xhr.send();
+    }
+</script>
 @stop
+

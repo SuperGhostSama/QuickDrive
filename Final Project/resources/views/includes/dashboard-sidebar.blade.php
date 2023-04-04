@@ -28,7 +28,7 @@
         </li>
 
         <li>
-            <a href="{{ url('dashboard-brands') }}">
+            <a href="{{ url('brands') }}">
                 <span class="icon">
                     <ion-icon name="chatbubble-outline"></ion-icon>
                 </span>

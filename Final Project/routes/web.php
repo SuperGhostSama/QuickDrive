@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\Auth\AuthController;
 
 /*
@@ -20,6 +21,20 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+// //Brands
+Route::get('brands', [BrandsController::class, 'index']);
+Route::get('brands/{brand}', [BrandsController::class, 'show']);
+
+Route::group(['controller' => BrandsController::class,'middleware'=>'auth'], function () {
+    Route::post('brands','store')->middleware('permission:add brand')->name('brands.store');
+    Route::put('brands','update')->middleware('permission:edit brand')->name('brands.update');
+    Route::delete('brands/{brand}','destroy')->middleware('permission:delete brand')->name('brands.destroy');
+});
+
+
+
+
+
 
 Route::get('/', function()
 {
@@ -34,16 +49,6 @@ Route::get('/', function()
 // Route::get('/cardetail', function()
 // {
 //    return View::make('pages.cardetail');
-// });
-
-// Route::get('/login', function()
-// {
-//    return View::make('pages.login');
-// });
-
-// Route::get('/register', function()
-// {
-//    return View::make('pages.register');
 // });
 
 // Route::get('/forgot-password', function()
