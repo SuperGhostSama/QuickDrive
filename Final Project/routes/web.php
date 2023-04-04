@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarsController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\Auth\AuthController;
 
@@ -31,8 +32,15 @@ Route::group(['controller' => BrandsController::class,'middleware'=>'auth'], fun
     Route::delete('brands/{brand}','destroy')->middleware('permission:delete brand')->name('brands.destroy');
 });
 
+//Cars crud
+Route::get('cars', [CarsController::class, 'index']);
+Route::get('cars/{car}', [CarsController::class, 'show']);
 
-
+Route::group(['controller' => CarsController::class,'middleware'=>'auth'], function () {
+    Route::post('cars','store')->middleware('permission:add car')->name('cars.store');
+    Route::put('cars', 'update')->middleware('permission:edit all cars')->name('cars.update');
+    Route::delete('cars/{car}', 'destroy')->middleware('permission:delete all cars')->name('cars.destroy');
+});
 
 
 

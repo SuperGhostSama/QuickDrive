@@ -27,7 +27,8 @@ class CarsTableSeeder extends Seeder
             'height' => '1.4',
             'cargo_volume' => '15.1',
             'price' => 200,
-            'status_id' => 1,
+            'status' => 'Available',
+
         ]);
         DB::table('cars')->insert([
             'image' => 'car2.jpg',
@@ -45,7 +46,7 @@ class CarsTableSeeder extends Seeder
             'height' => '1.4',
             'cargo_volume' => '14.7',
             'price' => 300,
-            'status_id' => 1,
+            'status' => 'Reserved',
         ]);
     }
 }
