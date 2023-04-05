@@ -37,7 +37,7 @@
         </li>
 
         <li>
-            <a href="{{ url('dashboard-users') }}">
+            <a href="{{ url('users') }}">
                 <span class="icon">
                     <ion-icon name="people-outline"></ion-icon>
                 </span>

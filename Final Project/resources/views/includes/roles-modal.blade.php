@@ -12,9 +12,9 @@
                 <label class="form-label" >Role</label>
                 <select class="form-select" aria-label="Default select example">
                   <option selected disabled >Open this select menu</option>
-                  <option value="1">Admin</option>
-                  <option value="2">Moderator</option>
-                  <option value="3">User</option>
+                  <option value="1">admin</option>
+                  <option value="2">moderator</option>
+                  <option value="3">user</option>
                 </select>
               </div>
               
@@ -23,7 +23,6 @@
 
           <div class="modal-footer">
             <button type="button" data-bs-dismiss="modal" class="btn btn-secondary" >Cancel</button>
-            <button type="submit" name="save" class="btn btn-primary task-action-btn" id="save">Save</button>
             <button type="submit" name="update" class="btn btn-warning task-action-btn" id="update">Update</button>
           </div>
         </form>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
@@ -52,7 +53,10 @@ Route::group(['controller' => ProfileController::class,'middleware'=>'auth'], fu
 });
 
 
-
+//Fetch all users
+Route::group(['controller' => UserController::class,'middleware'=>'auth'], function () {
+    Route::get('users','index')->middleware('permission:view all users')->name('users');
+});
 
 
 

@@ -17,27 +17,26 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>Users</td>
-                            <td>Role</td>
-                            <td>Email</td>
+                            <td class="text-center">Name</td>
+                            <td class="text-center">Email</td>
+                            <td class="text-center">Role</td>
                             
-                            <td>Operations</td>
+                            <td class="text-center">Operations</td>
                         </tr>
                     </thead>
 
                     <tbody>
+                        @foreach ($users as $user)
                         <tr>
-                            <td>Salah</td>
-                            <td>Admin</td>
-                            <td>Salah@test.com</td>
-                            <td>
+                            <td class="text-center">{{ $user->name }}</td>
+                            <td class="text-center">{{ $user->email }}</td>
+                            <td class="text-center">{{ $user->getRoleNames()[0] }}</td>
+                            <td class="text-center">
                                 <a href="#modal-roles" data-bs-toggle="modal"><ion-icon name="create-outline"></ion-icon></a>
-
-                                <a href=""><ion-icon name="trash-outline"></ion-icon></a>
                             </td>
                         </tr>
                         
-
+                        @endforeach
                         
 
                         

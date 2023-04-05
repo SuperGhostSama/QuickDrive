@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     public function index(){
-    $users = DB::table('users')->select('name', 'email')->get();
+    $users = User::all();
 
-    return response()->json([
-        'data' => $users
-        ]);
+    return view('pages.dashboard-users',compact('users'));
     }
 }
