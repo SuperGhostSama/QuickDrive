@@ -13,7 +13,7 @@
               <div class="mb-3">
                 <label class="form-label" >Brand</label>
                 <select name="brand"  class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
+                    <option selected disabled>Open this select menu</option>
                     @foreach ($brands as $brand)
                     <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                     @endforeach
@@ -26,7 +26,7 @@
               <div class="mb-3">
                 <label class="form-label" >Body Type</label>
                 <select name="bodytype"  class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
+                    <option selected disabled>Open this select menu</option>
                     @foreach ($bodyTypes as $bodyType)
                     <option value="{{ $bodyType->id }}">{{ $bodyType->name }}</option>
                     @endforeach
@@ -43,7 +43,7 @@
               <div class="mb-3">
                 <label class="form-label" >Fuel Type</label>
                 <select name="fueltype"  class="form-select" aria-label="Default select example">
-                  <option selected>Open this select menu</option>
+                  <option selected disabled>Open this select menu</option>
                   @foreach ($fuelTypes as $fuelType)
                     <option value="{{ $fuelType->id }}">{{ $fuelType->name }}</option>
                   @endforeach
@@ -56,7 +56,7 @@
               <div class="mb-3">
                 <label class="form-label" >Transmission</label>
                 <select name="transmission"  class="form-select" aria-label="Default select example">
-                  <option selected>Open this select menu</option>
+                  <option selected disabled>Open this select menu</option>
                   @foreach ($transmissions as $transmission)
                     <option value="{{ $transmission->id }}">{{ $transmission->name }}</option>
                   @endforeach

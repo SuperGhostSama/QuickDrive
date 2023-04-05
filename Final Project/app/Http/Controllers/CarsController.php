@@ -38,19 +38,19 @@ class CarsController extends Controller
     {
         $car = new Car();
         $car->image = $request->input('image');
-        $car->brand_id = $request->input('brand_id');
+        $car->brand_id = $request->input('brand');
         $car->model = $request->input('model');
-        $car->body_type_id = $request->input('body_type_id');
+        $car->body_type_id = $request->input('bodytype');
         $car->seats = $request->input('seats');
         $car->color = $request->input('color');
-        $car->fuel_type_id = $request->input('fuel_type_id');
+        $car->fuel_type_id = $request->input('fueltype');
         $car->mileage = $request->input('mileage');
-        $car->transmission_id = $request->input('transmission_id');
+        $car->transmission_id = $request->input('transmission');
         $car->power = $request->input('power');
         $car->length = $request->input('length');
         $car->width = $request->input('width');
         $car->height = $request->input('height');
-        $car->cargo_volume = $request->input('cargo_volume');
+        $car->cargo_volume = $request->input('cargo');
         $car->price = $request->input('price');
         $car->status = $request->input('status');
         $car->save();
@@ -63,30 +63,33 @@ class CarsController extends Controller
         return $this->index();
     }
 
-    public function update(Request $request, Car $car)
+    public function update(Request $request)
     {
+        $car = Car::find($request->id);
+        // dd($car);
         $car->image = $request->input('image');
-        $car->brand_id = $request->input('brand_id');
+        $car->brand_id = $request->input('brand');
         $car->model = $request->input('model');
-        $car->body_type_id = $request->input('body_type_id');
+        $car->body_type_id = $request->input('bodytype');
         $car->seats = $request->input('seats');
         $car->color = $request->input('color');
-        $car->fuel_type_id = $request->input('fuel_type_id');
+        $car->fuel_type_id = $request->input('fueltype');
         $car->mileage = $request->input('mileage');
-        $car->transmission_id = $request->input('transmission_id');
+        $car->transmission_id = $request->input('transmission');
         $car->power = $request->input('power');
         $car->length = $request->input('length');
         $car->width = $request->input('width');
-        $car->height = $request->input ('height');
-        $car->cargo_volume = $request->input('cargo_volume');
+        $car->height = $request->input('height');
+        $car->cargo_volume = $request->input('cargo');
         $car->price = $request->input('price');
         $car->status = $request->input('status');
-        $car->save();
+        $car->update();
     
-        return response()->json([
-            'message' => 'Car updated successfully',
-            'data' => $car
-        ]);
+        // return response()->json([
+        //     'message' => 'Car updated successfully',
+        //     'data' => $car
+        // ]);
+        return $this->index();
     }
     
     public function destroy(Car $car)

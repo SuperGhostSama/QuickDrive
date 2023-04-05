@@ -74,7 +74,7 @@
                                 @endif                                
                                 ">{{$car->status}}</span></td>
 
-                            <td>
+                            <td class="text-center">
                                 <a id="edit-button" onclick="editCar({{ $car->id }})" href="#modal-cars-edit" data-bs-toggle="modal"><ion-icon name="create-outline"></ion-icon></a>
                                 <form class="d-inline" method="POST" action="{{ route('cars.destroy', $car) }}">
                                     @csrf
@@ -102,7 +102,6 @@
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let car = JSON.parse(xhr.responseText);
                 console.log(car);
-
                 
                 // Gets all the brands options
                 let brands = car.brands;
