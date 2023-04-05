@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('register', [AuthController::class, 'registration'])->name('register');
@@ -21,7 +22,7 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-// //Brands
+//Brands
 Route::get('brands', [BrandsController::class, 'index']);
 Route::get('brands/{brand}', [BrandsController::class, 'show']);
 
