@@ -67,10 +67,15 @@
                             <td class="text-center">{{ $car->height }}</td>
                             <td class="text-center">{{ $car->cargo_volume}}</td>
                             <td class="text-center">{{ $car->price}} DH</td>
-                            <td class="text-center"><span class="status delivered">{{$car->status}}</span></td>
+                            <td class="text-center"><span class="
+                                @if ($car->status == "Available"){
+                                    available
+                                @else reserved
+                                @endif                                
+                                ">{{$car->status}}</span></td>
 
                             <td>
-                                <a id="edit-button" href="#modal-cars-edit" data-bs-toggle="modal"><ion-icon name="create-outline"></ion-icon></a>
+                                <a id="edit-button" onclick="editCar({{ $car->id }})" href="#modal-cars-edit" data-bs-toggle="modal"><ion-icon name="create-outline"></ion-icon></a>
                                 <form class="d-inline" method="POST" action="{{ route('cars.destroy', $car) }}">
                                     @csrf
                                     @method('DELETE')
@@ -96,12 +101,143 @@
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let car = JSON.parse(xhr.responseText);
-                document.querySelector('#modal-cars-edit #car-id').value = car.id;
-                document.querySelector('#modal-cars-edit #brand').value = car.name;
+                console.log(car);
+
+                
+                // Gets all the brands options
+                let brands = car.brands;
+                // console.log(car.brands);
+                let brandSelect = document.querySelector('#modal-cars-edit [name=brand]');
+                brandSelect.innerHTML = `<option selected>Open this select menu</option>`;
+                brands.forEach(element => {
+                    let domElement = `<option value="${element.id}">${element.name}</option>`;
+                    brandSelect.innerHTML += domElement;    
+                });
+                
+                // Gets all the bodytype options
+                let bodytype = car.bodytype;
+                // console.log(car.bodytype);
+                let bodytypeSelect = document.querySelector('#modal-cars-edit [name=bodytype]');
+                bodytypeSelect.innerHTML = `<option selected>Open this select menu</option>`;
+                bodytype.forEach(element => {
+                    let domElement = `<option value="${element.id}">${element.name}</option>`;
+                    bodytypeSelect.innerHTML += domElement;    
+                });
+
+                // Gets all the fueltype options
+                let fueltype = car.fueltype;
+                // console.log(car.fueltype);
+                let fueltypeSelect = document.querySelector('#modal-cars-edit [name=fueltype]');
+                fueltypeSelect.innerHTML = `<option selected>Open this select menu</option>`;
+                fueltype.forEach(element => {
+                    let domElement = `<option value="${element.id}">${element.name}</option>`;
+                    fueltypeSelect.innerHTML += domElement;    
+                });
+                
+                // Gets all the transmission options
+                let transmission = car.transmission;
+                // console.log(car.transmission);
+                let transmissionSelect = document.querySelector('#modal-cars-edit [name=transmission]');
+                transmissionSelect.innerHTML = `<option selected>Open this select menu</option>`;
+                transmission.forEach(element => {
+                    let domElement = `<option value="${element.id}">${element.name}</option>`;
+                    transmissionSelect.innerHTML += domElement;    
+                });
+
+                // Condition that selects the option in brand update
+                    document.querySelector('#modal-cars-edit [name=brand] option[value="'+car.car.brand_id+'"]').selected = true;
+               
+                // Condition that selects the option in bodytype update
+                    document.querySelector('#modal-cars-edit [name=bodytype] option[value="'+car.car.body_type_id+'"]').selected = true;
+               
+                // Condition that selects the option in fueltype update
+                    document.querySelector('#modal-cars-edit [name=fueltype] option[value="'+car.car.fuel_type_id+'"]').selected = true;
+               
+                // Condition that selects the option in transmission update
+                    document.querySelector('#modal-cars-edit [name=transmission] option[value="'+car.car.transmission_id+'"]').selected = true;
+               
+                
+                // Condition that selects the option in status update
+                if(car.car.status == 'Available' || car.car.status == 'Reserved'){
+                    document.querySelector('#modal-cars-edit [name=status] option[value='+car.car.status+']').selected = true;
+                }
+                else {
+                    document.querySelector('#modal-cars-edit [name=status] option').selected = true;
+                }
+
+                
+
+
+
+                document.querySelector('#modal-cars-edit #car-id').value = car.car.id;
+                document.querySelector('#modal-cars-edit #model').value = car.car.model;
+                document.querySelector('#modal-cars-edit #seats').value = car.car.seats;
+                document.querySelector('#modal-cars-edit #color').value = car.car.color;
+                document.querySelector('#modal-cars-edit #mileage').value = car.car.mileage;
+                document.querySelector('#modal-cars-edit #power').value = car.car.power;
+                document.querySelector('#modal-cars-edit #length').value = car.car.length;
+                document.querySelector('#modal-cars-edit #width').value = car.car.width;
+                document.querySelector('#modal-cars-edit #height').value = car.car.height;
+                document.querySelector('#modal-cars-edit #cargo').value = car.car.cargo_volume;
+                document.querySelector('#modal-cars-edit #price').value = car.car.price;
             }
         }
         xhr.open("GET", "cars/" + id, true);
         xhr.send();
     }
+    // function addCar() {
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.onreadystatechange = function() {
+    //         if (xhr.readyState == 4 && xhr.status == 200) {
+    //             let car = JSON.parse(xhr.responseText);
+    //             console.log(car);
+
+                
+    //             // Gets all the brands options
+    //             let brands = car.brands;
+    //             // console.log(car.brands);
+    //             let brandSelect = document.querySelector('[name=brand]');
+    //             brandSelect.innerHTML = `<option selected>Open this select menu</option>`;
+    //             brands.forEach(element => {
+    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
+    //                 brandSelect.innerHTML += domElement;    
+    //             });
+                
+    //             // Gets all the bodytype options
+    //             let bodytype = car.bodytype;
+    //             // console.log(car.bodytype);
+    //             let bodytypeSelect = document.querySelector('[name=bodytype]');
+    //             bodytypeSelect.innerHTML = `<option selected>Open this select menu</option>`;
+    //             bodytype.forEach(element => {
+    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
+    //                 bodytypeSelect.innerHTML += domElement;    
+    //             });
+
+    //             // Gets all the fueltype options
+    //             let fueltype = car.fueltype;
+    //             // console.log(car.fueltype);
+    //             let fueltypeSelect = document.querySelector('[name=fueltype]');
+    //             fueltypeSelect.innerHTML = `<option selected>Open this select menu</option>`;
+    //             fueltype.forEach(element => {
+    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
+    //                 fueltypeSelect.innerHTML += domElement;    
+    //             });
+                
+    //             // Gets all the transmission options
+    //             let transmission = car.transmission;
+    //             // console.log(car.transmission);
+    //             let transmissionSelect = document.querySelector('[name=transmission]');
+    //             transmissionSelect.innerHTML = `<option selected>Open this select menu</option>`;
+    //             transmission.forEach(element => {
+    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
+    //                 transmissionSelect.innerHTML += domElement;    
+    //             });
+
+               
+    //         }
+    //     }
+    //     xhr.open("GET", "cars/" + id, true);
+    //     xhr.send();
+    // }
 </script>
 @stop

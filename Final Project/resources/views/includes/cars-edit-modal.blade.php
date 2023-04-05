@@ -1,5 +1,5 @@
 <!-- MODAL -->
-<div class="modal fade" id="modal-cars" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+<div class="modal fade" id="modal-cars-edit" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <form action="{{ route('cars.update') }}" method="POST" id="form" >
@@ -15,11 +15,8 @@
         <div class="modal-body">
             <div class="mb-3">
               <label class="form-label" >Brand</label>
-              <select class="form-select" aria-label="Default select example">
+              <select name="brand"  class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
               </select>
             </div>
             <div class="mb-3">
@@ -28,11 +25,8 @@
             </div>
             <div class="mb-3">
               <label class="form-label" >Body Type</label>
-              <select class="form-select" aria-label="Default select example">
+              <select name="bodytype"  class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
               </select>                  
             </div>
             <div class="mb-3">
@@ -45,11 +39,8 @@
             </div>
             <div class="mb-3">
               <label class="form-label" >Fuel Type</label>
-              <select class="form-select" aria-label="Default select example">
+              <select name="fueltype"  class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -58,11 +49,8 @@
             </div>
             <div class="mb-3">
               <label class="form-label" >Transmission</label>
-              <select class="form-select" aria-label="Default select example">
+              <select name="transmission"  class="form-select" aria-label="Default select example">
                   <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
                 </select>                  
             </div>
             <div class="mb-3">
@@ -85,12 +73,23 @@
               <label class="form-label" >Cargo Volume</label>
               <input name="cargo" type="text" class="form-control" id="cargo" value=""  required/>
             </div>
+            <div class="mb-3">
+              <label class="form-label" >Price</label>
+              <input name="price" type="text" class="form-control" id="price" value=""  required/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" >Status</label>
+              <select name="status"  class="form-select" aria-label="Default select example">
+                  <option value="Available">Available</option>
+                  <option value="Reserved">Reserved</option>
+              </select>                  
+            </div>
 
         </div>
 
         <div class="modal-footer">
           <button type="button" data-bs-dismiss="modal" class="btn btn-secondary" >Cancel</button>
-          <button type="submit" name="update" class="btn btn-primary task-action-btn" id="update">Update</button>
+          <button type="submit" name="update" class="btn btn-warning task-action-btn" id="update">Update</button>
         </div>
       </form>
     </div>

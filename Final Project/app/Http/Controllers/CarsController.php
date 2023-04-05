@@ -1,8 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Brand;
+use App\Models\BodyType;
+use App\Models\FuelType;
+use App\Models\Transmission;
+use Illuminate\Http\Request;
 
 class CarsController extends Controller
 {
@@ -10,14 +14,23 @@ class CarsController extends Controller
     {
         // $cars = Car::all();
         $cars = Car::with(['brand','bodytype','fueltype','transmission'])->get();
+        $brands = Brand::all();
+        $bodyTypes = BodyType::all();
+        $fuelTypes = FuelType::all();
+        $transmissions = Transmission::all();
 
-        return view('pages.dashboard-cars',compact('cars'));
+        return view('pages.dashboard-cars',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
     }
 
     public function show(Car $car)
     {
         return response()->json([
-            'data' => $car
+            'car' => $car,
+            'brands' => Brand::all(),
+            'bodytype' => BodyType::all(),
+            'fueltype' => FuelType::all(),
+            'transmission' => Transmission::all(),
+            
         ]);
     }
 

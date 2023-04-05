@@ -12,11 +12,11 @@
           <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" >Brand</label>
-                <select class="form-select" aria-label="Default select example">
+                <select name="brand"  class="form-select" aria-label="Default select example">
                     <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach ($brands as $brand)
+                    <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                    @endforeach
                 </select>
               </div>
               <div class="mb-3">
@@ -25,11 +25,11 @@
               </div>
               <div class="mb-3">
                 <label class="form-label" >Body Type</label>
-                <select class="form-select" aria-label="Default select example">
+                <select name="bodytype"  class="form-select" aria-label="Default select example">
                     <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach ($bodyTypes as $bodyType)
+                    <option value="{{ $bodyType->id }}">{{ $bodyType->name }}</option>
+                    @endforeach
                 </select>                  
               </div>
               <div class="mb-3">
@@ -42,12 +42,12 @@
               </div>
               <div class="mb-3">
                 <label class="form-label" >Fuel Type</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
+                <select name="fueltype"  class="form-select" aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  @foreach ($fuelTypes as $fuelType)
+                    <option value="{{ $fuelType->id }}">{{ $fuelType->name }}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="mb-3">
                 <label class="form-label" >Mileage</label>
@@ -55,12 +55,12 @@
               </div>
               <div class="mb-3">
                 <label class="form-label" >Transmission</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>                  
+                <select name="transmission"  class="form-select" aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  @foreach ($transmissions as $transmission)
+                    <option value="{{ $transmission->id }}">{{ $transmission->name }}</option>
+                  @endforeach
+                </select>       
               </div>
               <div class="mb-3">
                 <label class="form-label" >Power</label>
@@ -82,7 +82,18 @@
                 <label class="form-label" >Cargo Volume</label>
                 <input name="cargo" type="text" class="form-control" id="cargo" value=""  required/>
               </div>
-
+              <div class="mb-3">
+                <label class="form-label" >Price</label>
+                <input name="price" type="text" class="form-control" id="price" value=""  required/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" >Status</label>
+                <select name="status"  class="form-select" aria-label="Default select example">
+                  <option selected disabled>Open this select menu</option>
+                    <option value="Available">Available</option>
+                    <option value="Reserved">Reserved</option>
+                </select>                  
+              </div>
           </div>
 
           <div class="modal-footer">
