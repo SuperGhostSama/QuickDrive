@@ -8,7 +8,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
-{
+{   
+    public function index()
+    {
+        $users = User::all();
+        return view('pages.dashboard-profile',compact('users'));
+    }
+
+
     public function updateProfile(Request $request, User $user)
     {
         $loggedInUser = Auth::user();
@@ -21,10 +28,7 @@ class ProfileController extends Controller
 
         $user->update($request->all());
 
-        return response([
-            '========' => '================= Update Profile ==================',
-            'Message' => 'Your profile updated successfully!',
-        ], 200);
+        return $this->index();
     }
 
     public function deleteProfile(User $user)
@@ -39,9 +43,6 @@ class ProfileController extends Controller
         }
 
         $user->delete();
-        return response()->json([
-
-            'message' => 'Profile deleted successfully!',
-        ], 200);
+        return view('pages.register');
     }
 }

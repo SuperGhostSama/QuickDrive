@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
 
 /*
@@ -15,7 +16,7 @@ use App\Http\Controllers\Auth\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Authentification
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('register', [AuthController::class, 'registration'])->name('register');
@@ -42,6 +43,19 @@ Route::group(['controller' => CarsController::class,'middleware'=>'auth'], funct
     Route::put('cars', 'update')->middleware('permission:edit all cars')->name('cars.update');
     Route::delete('cars/{car}', 'destroy')->middleware('permission:delete all cars')->name('cars.destroy');
 });
+
+// Profile
+Route::group(['controller' => ProfileController::class,'middleware'=>'auth'], function () {
+    Route::get('profile',[ProfileController::class,'index'])->name('profile');
+    Route::post('user/{user}','updateProfile')->middleware('permission:edit my profile|edit all profile')->name('profile.update');
+    Route::delete('user/{user}','deleteProfile')->middleware('permission:delete my profile|delete all profile')->name('profile.delete');
+});
+
+
+
+
+
+
 
 
 

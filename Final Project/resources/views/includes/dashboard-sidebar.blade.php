@@ -64,7 +64,7 @@
         </li>
 
         <li>
-            <a href="{{ url('dashboard-profile') }}">
+            <a href="{{ url('profile') }}">
                 <span class="icon">
                     <ion-icon name="settings-outline"></ion-icon>
                 </span>
@@ -90,7 +90,12 @@
             <ion-icon name="menu-outline"></ion-icon>
         </div>
 
-        <div class="user">
+        {{-- <div class="user">
             <img src="{{ asset('img/customer01.jpg') }}" alt="">
+        </div> --}}
+        <div class="badge text-bg-primary fs-6">
+            <span>{{auth()->user()->name}}</span>
         </div>
+
+
     </div>
