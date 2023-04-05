@@ -8,11 +8,10 @@ class CarsController extends Controller
 {
     public function index()
     {
-        $cars = Car::all();
+        // $cars = Car::all();
+        $cars = Car::with(['brand','bodytype','fueltype','transmission'])->get();
 
-        return response()->json([
-            'data' => $cars
-        ]);
+        return view('pages.dashboard-cars',compact('cars'));
     }
 
     public function show(Car $car)
@@ -40,13 +39,15 @@ class CarsController extends Controller
         $car->height = $request->input('height');
         $car->cargo_volume = $request->input('cargo_volume');
         $car->price = $request->input('price');
-        $car->status_id = $request->input('status_id');
+        $car->status = $request->input('status');
         $car->save();
 
-        return response()->json([
-            'message' => 'Car created successfully',
-            'data' => $car
-        ]);
+        // return response()->json([
+        //     'message' => 'Car created successfully',
+        //     'data' => $car
+        // ]);
+
+        return $this->index();
     }
 
     public function update(Request $request, Car $car)
@@ -66,7 +67,7 @@ class CarsController extends Controller
         $car->height = $request->input ('height');
         $car->cargo_volume = $request->input('cargo_volume');
         $car->price = $request->input('price');
-        $car->status_id = $request->input('status_id');
+        $car->status = $request->input('status');
         $car->save();
     
         return response()->json([
@@ -79,9 +80,11 @@ class CarsController extends Controller
     {
         $car->delete();
     
-        return response()->json([
-            'message' => 'Car deleted successfully'
-        ]);
+        // return response()->json([
+        //     'message' => 'Car deleted successfully'
+        // ]);
+
+        return $this->index();
     }
 
 }

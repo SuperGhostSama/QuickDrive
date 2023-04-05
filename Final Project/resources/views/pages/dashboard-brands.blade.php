@@ -21,7 +21,7 @@
             <div class="recentOrders">
                 <div class="cardHeader">
                     <h2>Available Brands</h2>
-                    <a href="#modal-brands" data-bs-toggle="modal" class="btns">Add Car</a>
+                    <a href="#modal-brands" data-bs-toggle="modal" class="btns">Add Brand</a>
                 </div>
 
                 <table>
@@ -42,13 +42,11 @@
                                 <form class="d-inline" method="POST" action="{{ route('brands.destroy', $brand) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="unstyled"><ion-icon name="trash-outline"></ion-icon></button>
+                                    <button class="unstyled" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
                                 </form>
                             </td>
                         </tr>
                         @endforeach
-
-                        
                     </tbody>
                 </table>
             </div>

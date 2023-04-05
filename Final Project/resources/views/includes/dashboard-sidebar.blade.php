@@ -19,7 +19,7 @@
         </li>
 
         <li>
-            <a href="{{ url('dashboard-cars') }}">
+            <a href="{{ url('cars') }}">
                 <span class="icon">
                     <ion-icon name="car-outline"></ion-icon>
                 </span>

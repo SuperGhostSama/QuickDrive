@@ -28,8 +28,7 @@ class CreateCarsTable extends Migration
             $table->float('height');
             $table->float('cargo_volume');
             $table->float('price');
-            $table->unsignedBigInteger('status_id');
-            $table->foreign('status_id')->references('id')->on('car_statuses')->onDelete('cascade');
+            $table->enum('status', ['Available', 'Reserved']);
             $table->timestamps();
         });
     }
