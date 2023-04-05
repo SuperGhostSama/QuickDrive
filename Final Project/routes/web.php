@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +57,14 @@ Route::group(['controller' => ProfileController::class,'middleware'=>'auth'], fu
 //Fetch all users
 Route::group(['controller' => UserController::class,'middleware'=>'auth'], function () {
     Route::get('users','index')->middleware('permission:view all users')->name('users');
+    Route::get('users/{user}','show')->middleware('permission:view all users')->name('show users');
+    Route::put('assign-role/', 'assignRole')->middleware('permission:assign role')->name('assign.role');
 });
 
+Route::group(['controller' => RolesController::class,'middleware'=>'auth'], function () {
+    Route::get('roles','index')->name('users');
+    Route::get('roles','index')->name('users');
+});
 
 
 

@@ -32,7 +32,7 @@
                             <td class="text-center">{{ $user->email }}</td>
                             <td class="text-center">{{ $user->getRoleNames()[0] }}</td>
                             <td class="text-center">
-                                <a href="#modal-roles" data-bs-toggle="modal"><ion-icon name="create-outline"></ion-icon></a>
+                                <a id="edit-button" onclick="editRole({{ $user->id }})" href="#modal-roles" data-bs-toggle="modal"><ion-icon name="create-outline"></ion-icon></a>
                             </td>
                         </tr>
                         
@@ -49,4 +49,26 @@
     </div>
 </div>
 @include('includes.roles-modal')
+
+
+<script>
+    function editRole(id) {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let role = xhr.responseText;
+                
+                console.log(role);
+                // Condition that selects the option in role update
+                    document.querySelector('#modal-roles [name=role] option[value="'+role+'"]').selected = true;
+               
+                    document.querySelector('#modal-roles #user-id').value = id;
+                
+            }
+        }
+        xhr.open("GET", "users/"+id, true);
+        xhr.send();
+    }
+    
+</script>
 @stop

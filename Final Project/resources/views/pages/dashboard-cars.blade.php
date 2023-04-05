@@ -184,59 +184,6 @@
         xhr.open("GET", "cars/" + id, true);
         xhr.send();
     }
-    // function addCar() {
-    //     let xhr = new XMLHttpRequest();
-    //     xhr.onreadystatechange = function() {
-    //         if (xhr.readyState == 4 && xhr.status == 200) {
-    //             let car = JSON.parse(xhr.responseText);
-    //             console.log(car);
-
-                
-    //             // Gets all the brands options
-    //             let brands = car.brands;
-    //             // console.log(car.brands);
-    //             let brandSelect = document.querySelector('[name=brand]');
-    //             brandSelect.innerHTML = `<option selected>Open this select menu</option>`;
-    //             brands.forEach(element => {
-    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
-    //                 brandSelect.innerHTML += domElement;    
-    //             });
-                
-    //             // Gets all the bodytype options
-    //             let bodytype = car.bodytype;
-    //             // console.log(car.bodytype);
-    //             let bodytypeSelect = document.querySelector('[name=bodytype]');
-    //             bodytypeSelect.innerHTML = `<option selected>Open this select menu</option>`;
-    //             bodytype.forEach(element => {
-    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
-    //                 bodytypeSelect.innerHTML += domElement;    
-    //             });
-
-    //             // Gets all the fueltype options
-    //             let fueltype = car.fueltype;
-    //             // console.log(car.fueltype);
-    //             let fueltypeSelect = document.querySelector('[name=fueltype]');
-    //             fueltypeSelect.innerHTML = `<option selected>Open this select menu</option>`;
-    //             fueltype.forEach(element => {
-    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
-    //                 fueltypeSelect.innerHTML += domElement;    
-    //             });
-                
-    //             // Gets all the transmission options
-    //             let transmission = car.transmission;
-    //             // console.log(car.transmission);
-    //             let transmissionSelect = document.querySelector('[name=transmission]');
-    //             transmissionSelect.innerHTML = `<option selected>Open this select menu</option>`;
-    //             transmission.forEach(element => {
-    //                 let domElement = `<option value="${element.id}">${element.name}</option>`;
-    //                 transmissionSelect.innerHTML += domElement;    
-    //             });
-
-               
-    //         }
-    //     }
-    //     xhr.open("GET", "cars/" + id, true);
-    //     xhr.send();
-    // }
+    
 </script>
 @stop
