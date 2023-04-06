@@ -6,66 +6,37 @@
 @section('content')
 <section id="recommendedCars">
     <div class="d-flex justify-content-center">
-        <h3 class="text-white">Recommended Cars</h3>
+        <h3 class="text-white">Recent Cars</h3>
     </div>
     <div class="d-flex flex-wrap justify-content-center">
-        <div class="card m-5" style="width: 20rem; background-color: #0B0C10;">
-            <img src="{{ asset('img/buggati chiron.jpg') }}" class="card-img-top p-1" alt="...">
-            <span class="badge text-bg-primary w-25 ms-3">New</span>
-            <div class="card-body">
-            <h5 class="card-title text-white">Bugatti chiron</h5>
-            <p class="card-text fw-bold fs-4" style="color: #007CC7;">500$</p>
-            </div>
-            <div class="d-flex">
+        @foreach ($cars as $car)
+            <a href="{{url ('cardetail')}}" class="card m-5 border border-info" style="width: 20rem; background-color: #0B0C10;text-decoration: none;">
+                <img src="{{ asset('img/buggati chiron.jpg') }}" class="card-img-top p-3" alt="...">
+                <span class="
+                badge w-25 ms-3
+                @if ($car->status == "Available"){
+                    text-bg-success
+                @else 
+                    text-bg-danger
+                @endif  
+                ">{{$car->status}}</span>
+                <div class="card-body">
+                <h5 class="card-title text-white">{{ $car->brand['name'] .' '. $car->model }}</h5>
+                <p class="card-text fw-bold fs-4" style="color: #007CC7;">{{ $car->price}}DH</p>
+                </div>
+                <div class="d-flex">
 
-                <div class="card-body">
-                    <p class="card-text fw-bold text-white"><i class="bi bi-calendar" style="color: #007CC7;"></i> 2020</p> 
-                    <p class="card-text fw-bold text-white"><i class="bi bi-fuel-pump" style="color: #007CC7;"></i> Essence</p>
+                    <div class="card-body">
+                        <p class="card-text fw-bold text-white"><i class="bi bi-calendar" style="color: #007CC7;"></i> {{ $car->color }}</p> 
+                        <p class="card-text fw-bold text-white"><i class="bi bi-fuel-pump" style="color: #007CC7;"></i> {{ $car->fueltype['name'] }}</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text fw-bold text-white"><i class="bi bi-car-front-fill" style="color: #007CC7;"></i> {{ $car->bodytype['name'] }}</p> 
+                        <p class="card-text fw-bold text-white"><i class="bi bi-person" style="color: #007CC7;"></i>{{ $car->seats }}</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text fw-bold text-white"><i class="bi bi-car-front-fill" style="color: #007CC7;"></i> Rear-wheel Drive</p> 
-                    <p class="card-text fw-bold text-white"><i class="bi bi-person" style="color: #007CC7;"></i>5</p>
-                </div>
-            </div>
-        </div>
-        <div class="card m-5" style="width: 20rem; background-color: #0B0C10;">
-            <img src="{{ asset('img/buggati chiron.jpg') }}" class="card-img-top p-1" alt="...">
-            <span class="badge text-bg-primary w-25 ms-3">New</span>
-            <div class="card-body">
-            <h5 class="card-title text-white">Bugatti chiron</h5>
-            <p class="card-text fw-bold fs-4" style="color: #007CC7;">500$</p>
-            </div>
-            <div class="d-flex">
-
-                <div class="card-body">
-                    <p class="card-text fw-bold text-white"><i class="bi bi-calendar" style="color: #007CC7;"></i> 2020</p> 
-                    <p class="card-text fw-bold text-white"><i class="bi bi-fuel-pump" style="color: #007CC7;"></i> Essence</p>
-                </div>
-                <div class="card-body">
-                    <p class="card-text fw-bold text-white"><i class="bi bi-car-front-fill" style="color: #007CC7;"></i> Rear-wheel Drive</p> 
-                    <p class="card-text fw-bold text-white"><i class="bi bi-person" style="color: #007CC7;"></i>5</p>
-                </div>
-            </div>
-        </div>
-        <div class="card m-5" style="width: 20rem; background-color: #0B0C10;">
-            <img src="{{ asset('img/buggati chiron.jpg') }}" class="card-img-top p-1" alt="...">
-            <span class="badge text-bg-primary w-25 ms-3">New</span>
-            <div class="card-body">
-            <h5 class="card-title text-white">Bugatti chiron</h5>
-            <p class="card-text fw-bold fs-4" style="color: #007CC7;">500$</p>
-            </div>
-            <div class="d-flex">
-
-                <div class="card-body">
-                    <p class="card-text fw-bold text-white"><i class="bi bi-calendar" style="color: #007CC7;"></i> 2020</p> 
-                    <p class="card-text fw-bold text-white"><i class="bi bi-fuel-pump" style="color: #007CC7;"></i> Essence</p>
-                </div>
-                <div class="card-body">
-                    <p class="card-text fw-bold text-white"><i class="bi bi-car-front-fill" style="color: #007CC7;"></i> Rear-wheel Drive</p> 
-                    <p class="card-text fw-bold text-white"><i class="bi bi-person" style="color: #007CC7;"></i>5</p>
-                </div>
-            </div>
-        </div>
+            </a>
+            @endforeach
     </div>
 </section>
 

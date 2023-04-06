@@ -141,5 +141,21 @@ class CarsController extends Controller
         return view('pages.allcars',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
     }
 
+    public function recentlyAddedCars()
+    {
+        $cars = Car::with(['brand', 'bodytype', 'fueltype', 'transmission'])
+                    ->where('status', 'Available')
+                    ->orderBy('created_at', 'desc')
+                    ->take(3)
+                    ->get();
+        $brands = Brand::all();
+        $bodyTypes = BodyType::all();
+        $fuelTypes = FuelType::all();
+        $transmissions = Transmission::all();
+            
+
+        return view('pages.home',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
+    }
+
 
 }
