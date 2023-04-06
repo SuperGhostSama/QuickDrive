@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             CarStatusesTableSeeder::class,
             CarsTableSeeder::class,
             ReservationSeeder::class,
+            ContactsTableSeeder::class,
         ]);
     }
 }

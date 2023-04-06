@@ -5,7 +5,17 @@
 <div class="containers">
     @include('includes.dashboard-sidebar')
 
-    
+    <style>
+        .unstyled{
+            border: none;
+            margin: 0;
+            padding: 0;
+            width: auto;
+            overflow: visible;
+            color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+            background: transparent;
+        }
+    </style>
             <!-- ================ Order Details List ================= -->
         <div class="details">
             <div class="recentOrders">
@@ -18,22 +28,31 @@
                     <thead>
                         <tr >
                             <td class="text-center">Name</td>
-                            <td class="text-center">Phone</td>
                             <td class="text-center">Email</td>
-                            <td class="text-center">Comment</td>
+                            <td class="text-center">Message</td>
+                            <td class="text-center">Created At</td>
+                            <td class="text-center">Operations</td>
                             
                             
                         </tr>
                     </thead>
 
                     <tbody>
+                        @foreach ($contacts as $contact)
                         <tr>
-                            <td>Salah</td>
-                            <td>0642781382</td>
-                            <td>Salah@test.com</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim officia, dicta blanditiis saepe voluptate necessitatibus quidem quibusdam debitis! Maiores, provident.</td>
+                            <td class="text-center">{{ $contact->full_name }}</td>
+                            <td class="text-center">{{ $contact->email }}</td>
+                            <td class="text-center">{{ $contact->message }}</td>
+                            <td class="text-center">{{ $contact->created_at }}</td>
+                            <td class="text-center">
+                                <form class="d-inline" method="POST" action="{{ route('contacts.destroy', $contact) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="unstyled" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
+                                </form>
+                            </td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>

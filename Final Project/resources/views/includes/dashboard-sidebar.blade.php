@@ -46,7 +46,7 @@
         </li>
 
         <li>
-            <a href="{{ url('dashboard-contactus') }}">
+            <a href="{{ url('contacts') }}">
                 <span class="icon">
                     <ion-icon name="mail-outline"></ion-icon>
                 </span>
