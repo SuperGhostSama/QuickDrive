@@ -33,13 +33,14 @@ class ContactController extends Controller
         ]);
 
         $contact = new Contact;
-        $contact->full_name = $request->input('full_name');
+        $contact->full_name = $request->input('fullname');
         $contact->email = $request->input('email');
         $contact->message = $request->input('message');
         $contact->created_at = now(); // add the current time of creation
         $contact->save();
 
-        return response()->json(['contact' => $contact]);
+        // return response()->json(['contact' => $contact]);
+        return view('pages.home');
     }
 
     /**

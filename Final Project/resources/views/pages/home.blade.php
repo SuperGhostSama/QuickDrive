@@ -133,26 +133,24 @@
                 <img class="col-sm-12 col-lg-6 p-5" src="{{ asset('img/maps.png') }}" alt="maps">
             <div class="col-sm-12 col-lg-6 p-5">
                 <h3>Contact Us</h3>
-                <form>
+                <form action="{{ route('contacts') }}" method="POST" id="form">
                     <div class="mb-3">
                       <label for="contactName" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="contactName" aria-describedby="emailHelp" placeholder="Full Name" required>
+                      <input type="text" name="fullname" class="form-control" id="contactName" aria-describedby="emailHelp" placeholder="Full Name" required>
                     </div>
                     <div class="mb-3">
                       <label for="contactEmail" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" placeholder="email@mail.com" required>
+                      <input type="email" name="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" placeholder="email@mail.com" required>
                     </div>
-                    <div class="mb-3">
-                      <label for="contactPhone" class="form-label">Phone</label>
-                      <input type="tel" class="form-control" id="contactPhone"pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="000-000-000" required>
-                    </div>
+                    
                     <div class="mb-3">
                       <label for="contactComment" class="form-label">Comment</label>
-                      <textarea type="text" class="form-control" id="contactComment" placeholder="Leave a message here" required style="max-height: 180px; min-height: 180px;"></textarea>
+                      <textarea type="text" name="message" class="form-control" id="contactComment" placeholder="Leave a message here" required style="max-height: 269px; min-height: 269px;"></textarea>
                     </div>
                     
                     <button type="submit" name="send" class="btn-prim col-10 col-sm-2 text-white w-100 p-1">Send</button>
-                  </form>
+
+                </form>   
 
             </div>
           

@@ -66,7 +66,8 @@ Route::group(['controller' => RolesController::class,'middleware'=>'auth'], func
     Route::get('roles','index')->name('users');
 });
 
-
+//Contact Us
+Route::post('contacts', [ContactController::class, 'store'])->name('contacts');
 
 
 
