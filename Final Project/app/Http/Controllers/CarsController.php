@@ -103,4 +103,43 @@ class CarsController extends Controller
         return $this->index();
     }
 
+    public function allcars()
+    {
+        // $cars = Car::all();
+        $cars = Car::with(['brand','bodytype','fueltype','transmission'])->get();
+        $brands = Brand::all();
+        $bodyTypes = BodyType::all();
+        $fuelTypes = FuelType::all();
+        $transmissions = Transmission::all();
+
+        return view('pages.allcars',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
+    }
+
+    public function sortAscending()
+    {
+        $cars = Car::with(['brand', 'bodytype', 'fueltype', 'transmission'])
+                ->orderBy('price', 'asc')
+                ->get();
+        $brands = Brand::all();
+        $bodyTypes = BodyType::all();
+        $fuelTypes = FuelType::all();
+        $transmissions = Transmission::all();
+
+        return view('pages.allcars',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
+    }
+
+    public function sortDescending()
+    {
+        $cars = Car::with(['brand', 'bodytype', 'fueltype', 'transmission'])
+                ->orderBy('price', 'desc')
+                ->get();
+        $brands = Brand::all();
+        $bodyTypes = BodyType::all();
+        $fuelTypes = FuelType::all();
+        $transmissions = Transmission::all();
+
+        return view('pages.allcars',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
+    }
+
+
 }

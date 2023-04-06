@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\BodyType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class BodyTypesSeeder extends Seeder
 {
@@ -13,14 +14,35 @@ class BodyTypesSeeder extends Seeder
      *
      * @return void
      */
+    // public function run()
+    // {
+    //     DB::table('body_types')->insert([
+    //         'name' => 'Sedan',
+    //     ]);
+
+    //     DB::table('body_types')->insert([
+    //         'name' => 'SUV',
+    //     ]);
+    // }
+
     public function run()
     {
-        DB::table('body_types')->insert([
-            'name' => 'Sedan',
-        ]);
+        $body_types = [
+            'Sedan',
+            'Hatchback',
+            'Coupe',
+            'Convertible',
+            'SUV',
+            'Crossover',
+            'Pickup Truck',
+            'Minivan',
+            'Station Wagon'
+        ];
 
-        DB::table('body_types')->insert([
-            'name' => 'SUV',
-        ]);
+        foreach ($body_types as $type) {
+            BodyType::create([
+                'name' => $type
+            ]);
+        }
     }
 }

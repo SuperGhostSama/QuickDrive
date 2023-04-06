@@ -72,6 +72,10 @@ Route::get('contacts', [ContactController::class, 'index'])->name('contactus');
 Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
 Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
+//All Cars
+Route::get('allcars', [CarsController::class, 'allcars'])->name('all.cars');
+Route::get('allcars/ascending', [CarsController::class, 'sortAscending'])->name('cars.ascending');
+Route::get('allcars/descending', [CarsController::class, 'sortDescending'])->name('cars.descending');
 
 
 Route::get('/', function()
@@ -89,49 +93,15 @@ Route::get('/', function()
 //    return View::make('pages.cardetail');
 // });
 
-// Route::get('/forgot-password', function()
-// {
-//    return View::make('pages.forgot-password');
-// });
-
-// Route::get('/reset-password', function()
-// {
-//    return View::make('pages.reset-password');
-// });
-
 // Route::get('/dashboard', function()
 // {
 //    return View::make('pages.dashboard');
 // });
 
-// Route::get('/dashboard-cars', function()
-// {
-//    return View::make('pages.dashboard-cars');
-// });
-
-// Route::get('/dashboard-brands', function()
-// {
-//    return View::make('pages.dashboard-brands');
-// });
-
-// Route::get('/dashboard-users', function()
-// {
-//    return View::make('pages.dashboard-users');
-// });
-
-// Route::get('/dashboard-contactus', function()
-// {
-//    return View::make('pages.dashboard-contactus');
-// });
 
 // Route::get('/dashboard-reservations', function()
 // {
 //    return View::make('pages.dashboard-reservations');
-// });
-
-// Route::get('/dashboard-profile', function()
-// {
-//    return View::make('pages.dashboard-profile');
 // });
 
 

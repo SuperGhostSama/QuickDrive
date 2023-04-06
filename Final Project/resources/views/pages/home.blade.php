@@ -117,7 +117,7 @@
         <h3 class="text-white">Our Service</h3>
     </div>
     <div class="d-flex justify-content-center">
-        <a href="{{url ('allcars')}}" class="card mt-1 mb-5 border border-info" style="width: 20rem; background-color: #0B0C10; text-decoration: none;">
+        <a href="{{route ('all.cars')}}" class="card mt-1 mb-5 border border-info" style="width: 20rem; background-color: #0B0C10; text-decoration: none;">
             <div class="card-body">
                 <h5 class="card-title text-white text-center"><i class="bi bi-car-front" style="font-size: 50px;"></i></h5>
                 <h4 class="text-white text-center">Rent a car</h4>
