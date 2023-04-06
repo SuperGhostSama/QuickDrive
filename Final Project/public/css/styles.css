@@ -97,3 +97,8 @@ body{
 .text-gray-700 { 
     color: white!important;
 }
+
+/* 
+.dropdown-menu[data-bs-popper] {
+    left: -17px;
+} */

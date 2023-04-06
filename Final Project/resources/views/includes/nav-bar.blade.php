@@ -17,10 +17,39 @@
                     <a class="nav-link active" aria-current="page" href="{{url ('/#contactUs')}}">Contact Us</a>
                 </li>
             </ul>
+            @auth
+                @role('user')
+                <div class="d-flex justify-content-center ">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{auth()->user()->name}}
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ url('logout') }}">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                @else
+                <div class="d-flex justify-content-center ">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{auth()->user()->name}}
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="{{ url('profile') }}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ url('logout') }}">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                @endrole
+            @else
             <div class="d-flex justify-content-center">
                 <a class="btn btn-secondary m-1" href="{{ url('login') }}">Login</a>
                 <a class="btn btn-secondary m-1" href="{{ url('register') }}">Signup</a>
             </div>
+            @endauth
         </div>
     </div>
 </nav>

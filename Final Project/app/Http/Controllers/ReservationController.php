@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,20 +24,16 @@ class ReservationController extends Controller
     // Create a new reservation
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
-            'CIN' => 'required|string',
-            'phone_number' => 'required|string',
-            'driving_licence_number' => 'required|string',
-            'date_of_birth' => 'required|date',
-            'user_id' => 'required|exists:users,id',
-            'car_id' => 'required|exists:cars,id'
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
-        }
+        // $validator = Validator::make($request->all(), [
+        //     'start_date' => 'required|date',
+        //     'end_date' => 'required|date|after_or_equal:start_date',
+        //     'CIN' => 'required|string',
+        //     'phone_number' => 'required|string',
+        //     'driving_licence_number' => 'required|string',
+        //     'date_of_birth' => 'required|date',
+        // ]);
+        dd("yes");
+        $car = Car::find($id);
 
         $reservation = new Reservation();
         $reservation->start_date = $request->start_date;
@@ -45,16 +42,17 @@ class ReservationController extends Controller
         $reservation->phone_number = $request->phone_number;
         $reservation->driving_licence_number = $request->driving_licence_number;
         $reservation->date_of_birth = $request->date_of_birth;
-        $reservation->user_id = $request->user_id;
-        $reservation->car_id = $request->car_id;
+        // $reservation->user_id = $request->user()->id;
+        $reservation->car_id = $car->id;
         $reservation->save();
 
         return response()->json(['message' => 'Reservation created successfully!', 'reservation' => $reservation], 201);
+        // return redirect('/cardetail/1',);
     }
 
     // Get a single reservation
     public function show(Request $request, $id)
-{
+    {
     $reservation = Reservation::with('user', 'car')->find($id);
     if (!$reservation) {
         return response()->json(['message' => 'Reservation not found!'], 404);
@@ -72,7 +70,7 @@ class ReservationController extends Controller
     }
 
     return response()->json(['reservation' => $reservation]);
-}
+    }
 
     /**
      * Update the specified resource in storage.

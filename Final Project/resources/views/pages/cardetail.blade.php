@@ -25,25 +25,37 @@
           Id non velit auctor praesent a amet risus facilisis. Lobortis nisl placerat orci, eu nisl ornare. Eu vitae pellentesque rhoncus eros vivamus est purus enim dui. Leo ac pharetra massa tristique. Libero aliquam pellentesque laoreet dui pulvinar facilisis. Id lectus mauris senectus sodales porta malesuada tincidunt et. Quam dui nulla venenatis suscipit nulla lectus volutpat, augue purus. Sed condimentum parturient maecenas viverra pulvinar leo augue nunc.</p>
       </div>
         <div class="col-lg-11">
-          <h3>Contact Us</h3>
-          <form>
+          <h3>Reserve Now</h3>
+          <form action="{{ route('reservations.store') }}" method="POST" id="form">
+              @csrf
               <div class="mb-3">
-                <label for="contactName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="contactName" aria-describedby="emailHelp" placeholder="Full Name" required>
+                <label for="CIN" class="form-label">CIN</label>
+                <input type="text" class="form-control" name="CIN" id="CIN"  placeholder="" required>
               </div>
               <div class="mb-3">
-                <label for="contactEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" placeholder="email@mail.com" required>
-              </div>
-              <div class="mb-3">
-                <label for="contactPhone" class="form-label">Phone</label>
-                <input type="tel" class="form-control" id="contactPhone"pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="000-000-000" required>
-              </div>
-              <div class="mb-3">
-                <label for="contactComment" class="form-label">Comment</label>
-                <textarea type="text" class="form-control" id="contactComment" placeholder="Leave a message here" required style="max-height: 180px; min-height: 180px;"></textarea>
+                <label for="driving_licence_number" class="form-label">Driving Licence Number</label>
+                <input type="text" class="form-control" name="driving_licence_number" id="driving_licence_number"  placeholder="" required>
               </div>
               
+              <div class="mb-3">
+                <label for="contactPhone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" name="phone_number" id="contactPhone" required>
+              </div>
+
+              <div class="d-flex align-items-center flex-column">
+                <div class="form-group mb-3 w-50">
+                  <label for="birthday">Date Of Birth</label>
+                  <input type="date" class="form-control" id="birthday" name="date_of_birth">
+                </div>
+                <div class="form-group mb-3 w-50">
+                  <label for="startdate">Start Date</label>
+                  <input type="date" class="form-control" id="startdate" name="start_date">
+                </div>
+                <div class="form-group mb-3 w-50">
+                  <label for="enddate">End Date</label>
+                  <input type="date" class="form-control" id="enddate" name="end_date">
+                </div>
+              </div>
               <button type="submit" name="send" class="btn-prim col-10 col-sm-2 text-white w-100 p-1 mb-5">Send</button>
             </form>
 
