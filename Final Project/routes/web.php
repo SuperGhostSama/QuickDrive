@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,10 +88,10 @@ Route::get('cardetail/{car}', [CarsController::class, 'showOne'])->name('car.det
 
 
 //Reservation
-Route::group(['controller' => ReservationController::class,'middleware'=>'auth:api'], function () {
+Route::group(['controller' => ReservationController::class,'middleware'=>'auth'], function () {
     Route::get('reservations','index')->middleware('permission:view all reservations');
     Route::get('reservations/{id}','show')->middleware('permission:view my reservation|view all reservations');
-    Route::post('reservations/','store')->middleware('permission:add reservation')->name('reservations.store');
+    Route::post('reservations/{car}','store')->middleware('permission:add reservation')->name('reservations.store');
     Route::put('reservations/{id}','update')->middleware('permission:update reservations');
     Route::delete('reservations/{id}','destroy')->middleware('permission:delete my reservation|delete all reservations');
 });

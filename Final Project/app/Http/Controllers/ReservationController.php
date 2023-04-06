@@ -22,18 +22,17 @@ class ReservationController extends Controller
     }
 
     // Create a new reservation
-    public function store(Request $request)
+    public function store(Request $request, Car $car)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'start_date' => 'required|date',
-        //     'end_date' => 'required|date|after_or_equal:start_date',
-        //     'CIN' => 'required|string',
-        //     'phone_number' => 'required|string',
-        //     'driving_licence_number' => 'required|string',
-        //     'date_of_birth' => 'required|date',
-        // ]);
-        dd("yes");
-        $car = Car::find($id);
+        $validator = Validator::make($request->all(), [
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'CIN' => 'required|string',
+            'phone_number' => 'required|string',
+            'driving_licence_number' => 'required|string',
+            'date_of_birth' => 'required|date',
+        ]);
+
 
         $reservation = new Reservation();
         $reservation->start_date = $request->start_date;
@@ -42,12 +41,12 @@ class ReservationController extends Controller
         $reservation->phone_number = $request->phone_number;
         $reservation->driving_licence_number = $request->driving_licence_number;
         $reservation->date_of_birth = $request->date_of_birth;
-        // $reservation->user_id = $request->user()->id;
+        $reservation->user_id = $request->user()->id;
         $reservation->car_id = $car->id;
         $reservation->save();
 
-        return response()->json(['message' => 'Reservation created successfully!', 'reservation' => $reservation], 201);
-        // return redirect('/cardetail/1',);
+        // return response()->json(['message' => 'Reservation created successfully!', 'reservation' => $reservation], 201);
+        return back();
     }
 
     // Get a single reservation

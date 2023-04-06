@@ -26,7 +26,7 @@
       </div>
         <div class="col-lg-11">
           <h3>Reserve Now</h3>
-          <form action="{{ route('reservations.store') }}" method="POST" id="form">
+          <form action="{{ route('reservations.store',$car) }}" method="POST" id="form">
               @csrf
               <div class="mb-3">
                 <label for="CIN" class="form-label">CIN</label>
