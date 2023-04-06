@@ -56,7 +56,7 @@
             </li>
 
             <li>
-                <a href="{{ url('dashboard-reservations') }}">
+                <a href="{{ url('reservations') }}">
                     <span class="icon">
                         <ion-icon name="card-outline"></ion-icon>
                     </span>

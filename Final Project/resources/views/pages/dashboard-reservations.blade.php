@@ -33,51 +33,23 @@
                     </thead>
 
                     <tbody>
+                        @foreach ($reservations as $reservation)
                         <tr>
-                            <td class="text-center">Salah</td>
-                            <td class="text-center">Chevrolet Camaro</td>
-                            <td class="text-center">HA221138</td>
-                            <td class="text-center">0645875136</td>
-                            <td class="text-center">DLN0</td>
-                            <td class="text-center">2000-01-01</td>
-                            <td class="text-center">2023-04-01</td>
-                            <td class="text-center">2023-04-09</td>
-                            <td><span class="status delivered">Delivered</span></td>
+                            <td class="text-center">{{ $reservation->user->name}}</td>
+                            <td class="text-center">{{ $reservation->car->brand->name.' '.$reservation->car->model }}</td>
+                            <td class="text-center">{{ $reservation->CIN}}</td>
+                            <td class="text-center">{{ $reservation->phone_number}}</td>
+                            <td class="text-center">{{ $reservation->driving_licence_number}}</td>
+                            <td class="text-center">{{ $reservation->date_of_birth}}</td>
+                            <td class="text-center">{{ $reservation->start_date}}</td>
+                            <td class="text-center">{{ $reservation->end_date}}</td>
+                            <td><span class="status pending">Pending</span></td>
                             <td class="text-center">
                                 <a href=""><ion-icon name="create-outline"></ion-icon></a>
                                 <a href=""><ion-icon name="trash-outline"></ion-icon></a>
                             </td> 
                         </tr>
-                        <tr>
-                            <td class="text-center">Salah</td>
-                            <td class="text-center">Chevrolet Camaro</td>
-                            <td class="text-center">HA221138</td>
-                            <td class="text-center">0645875136</td>
-                            <td class="text-center">DLN0</td>
-                            <td class="text-center">2000-01-01</td>
-                            <td class="text-center">2023-04-01</td>
-                            <td class="text-center">2023-04-09</td>
-                            <td><span class="status pending">Pending</span></td> 
-                            <td class="text-center">
-                                <a href=""><ion-icon name="create-outline"></ion-icon></a>
-                                <a href=""><ion-icon name="trash-outline"></ion-icon></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">Salah Eddine Hanaoui</td>
-                            <td class="text-center">Chevrolet Camaro</td>
-                            <td class="text-center">HA221138</td>
-                            <td class="text-center">0645875136</td>
-                            <td class="text-center">DLN0</td>
-                            <td class="text-center">2000-01-01</td>
-                            <td class="text-center">2023-04-01</td>
-                            <td class="text-center">2023-04-09</td>
-                            <td><span class="status return">Return</span></td> 
-                            <td class="text-center">
-                                <a href=""><ion-icon name="create-outline"></ion-icon></a>
-                                <a href=""><ion-icon name="trash-outline"></ion-icon></a>
-                            </td>
-                        </tr>
+                        @endforeach
 
                     </tbody>
                 </table>

@@ -32,4 +32,7 @@ class Car extends Model
         return $this->belongsTo(Transmission::class);
     }
 
+    public function reservation() {
+        return $this->belongsTo(Reservation::class);
+    }
 }

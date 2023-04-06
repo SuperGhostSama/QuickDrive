@@ -17,8 +17,9 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservations = Reservation::with('user', 'car')->select('id', 'start_date', 'end_date', 'CIN', 'phone_number', 'driving_licence_number', 'date_of_birth')->get();
-        return response()->json(['reservations' => $reservations]);
+        $reservations = Reservation::all()->load('user', 'car');
+
+        return view('pages.dashboard-reservations', compact('reservations'));
     }
 
     // Create a new reservation
