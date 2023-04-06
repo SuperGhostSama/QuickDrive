@@ -133,7 +133,8 @@
                 <img class="col-sm-12 col-lg-6 p-5" src="{{ asset('img/maps.png') }}" alt="maps">
             <div class="col-sm-12 col-lg-6 p-5">
                 <h3>Contact Us</h3>
-                <form action="{{ route('contacts') }}" method="POST" id="form">
+                <form action="{{ route('contacts.store') }}" method="POST" id="form">
+                    @csrf
                     <div class="mb-3">
                       <label for="contactName" class="form-label">Name</label>
                       <input type="text" name="fullname" class="form-control" id="contactName" aria-describedby="emailHelp" placeholder="Full Name" required>

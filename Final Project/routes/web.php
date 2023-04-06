@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +68,7 @@ Route::group(['controller' => RolesController::class,'middleware'=>'auth'], func
 });
 
 //Contact Us
-Route::post('contacts', [ContactController::class, 'store'])->name('contacts');
+Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
 
 
 
