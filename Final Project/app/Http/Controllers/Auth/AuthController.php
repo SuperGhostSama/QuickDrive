@@ -82,10 +82,12 @@ class AuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('pages.dashboard');
+            if(Auth::user()->hasRole(['admin', 'moderator'])){
+                return view('pages.dashboard');
+            }
+            return view('errors.404');
         }
-        return redirect("login")->withSuccess('Opps! You do not have access');
-  
+        return view('pages.login');
     }
     
     /**
@@ -111,6 +113,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return redirect('dashboard');
+        return redirect(url('/'));
     }
 }

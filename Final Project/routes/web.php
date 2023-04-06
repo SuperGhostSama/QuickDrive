@@ -96,6 +96,10 @@ Route::group(['controller' => ReservationController::class,'middleware'=>'auth']
     Route::delete('reservations/{id}','destroy')->middleware('permission:delete my reservation|delete all reservations');
 });
 
+Route::get('/404', function()
+{
+   return View::make('errors.404');
+});
 
 // Route::get('/dashboard', function()
 // {
