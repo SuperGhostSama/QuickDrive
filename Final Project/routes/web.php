@@ -81,16 +81,9 @@ Route::get('allcars/descending', [CarsController::class, 'sortDescending'])->nam
 //Landing page
 Route::get('/',[CarsController::class, 'recentlyAddedCars'])->name('recentlyAddedCars');
 
+//Car Detail
+Route::get('cardetail/{car}', [CarsController::class, 'showOne'])->name('car.detail');
 
-// Route::get('/', function()
-// {
-//    return View::make('pages.home');
-// });
-
-// Route::get('/allcars', function()
-// {
-//    return View::make('pages.allcars');
-// });
 
 // Route::get('/cardetail', function()
 // {

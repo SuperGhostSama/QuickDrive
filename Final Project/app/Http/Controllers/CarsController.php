@@ -158,4 +158,15 @@ class CarsController extends Controller
     }
 
 
+    public function showOne(Car $car)
+    {
+        $car = $car->load(['brand', 'bodytype', 'fueltype', 'transmission']);
+        $brands = Brand::all();
+        $bodyTypes = BodyType::all();
+        $fuelTypes = FuelType::all();
+        $transmissions = Transmission::all();
+
+        return view('pages.cardetail', compact('car','brands','bodyTypes','fuelTypes','transmissions'));
+    }
+
 }

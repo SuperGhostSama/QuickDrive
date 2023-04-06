@@ -2,7 +2,7 @@
 @section('breadcrumbs')
 <!-- BreadCrumbs -->
 <div class="text-white mt-4 ms-5 mb-4">
-    <h2>Bugatti Chiron</h2>
+    <h2>{{ $car->brand['name'] .' '. $car->model }}</h2>
     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url ('/')}}" style="color: white; text-decoration: none">Home</a></li>
@@ -53,72 +53,69 @@
     <div class="col-lg-4 ">
       <card href="#" class="card mt-1 mb-5 border border-info" style="background-color: #0B0C10">
         <div class="card-body">
-            <h4 class="text-info text-center fw-bold">600DH</h4>
+            <h4 class="text-info text-center fw-bold">{{ $car->price}}DH</h4>
         </div>
       </card>
       <div class="p-4" style="background-color: #12232E;">
         <h4 class="text-white">Car Details</h4>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Brand</p>
-          <p class="text-white">Tesla</p>
+          <p class="text-white">{{$car->brand['name']}}</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Model</p>
-          <p class="text-white">Model 3</p>
+          <p class="text-white">{{$car->model}}</p>
         </div>
-        <div class="d-flex justify-content-between">
-          <p class="text-secondary fw-bold">Year</p>
-          <p class="text-white">2022</p>
-        </div>
+        
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Body Type</p>
-          <p class="text-white">Sedan</p>
+          <p class="text-white">{{ $car->bodytype['name'] }}</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Seats</p>
-          <p class="text-white">5 people</p>
+          <p class="text-white">{{ $car->seats }} people</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Exterior Color</p>
-          <p class="text-white">Black</p>
+          <p class="text-white">{{ $car->color }}</p>
         </div>
         <hr class="text-white">
 
         <h4 class="text-white">Engine</h4>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Fuel Type</p>
-          <p class="text-white">Electric</p>
+          <p class="text-white">{{ $car->fueltype['name'] }}</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Mileage</p>
-          <p class="text-white">340km</p>
+          <p class="text-white">{{ $car->mileage }} KM</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Transmission</p>
-          <p class="text-white">Automatic</p>
+          <p class="text-white">{{ $car->transmission['name']}}</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Power</p>
-          <p class="text-white">283hp</p>
+          <p class="text-white">{{ $car->power }} hp</p>
         </div>
         <hr class="text-white">
 
         <h4 class="text-white">Dimension</h4>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Length</p>
-          <p class="text-white">4694 mm</p>
+          <p class="text-white">{{ $car->length }} m</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Width</p>
-          <p class="text-white">1849 mm</p>
+          <p class="text-white">{{ $car->width }} m</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Height</p>
-          <p class="text-white">1443 mm</p>
+          <p class="text-white">{{ $car->height }} m</p>
         </div>
         <div class="d-flex justify-content-between">
           <p class="text-secondary fw-bold">Cargo Volume</p>
-          <p class="text-white">542 L</p>
+          <p class="text-white">{{ $car->cargo_volume}} L</p>
         </div>
         
         

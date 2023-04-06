@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
             BrandsTableSeeder::class,
             FuelTypesTableSeeder::class,
             TransmissionsTableSeeder::class,
-            CarStatusesTableSeeder::class,
             CarsTableSeeder::class,
             ReservationSeeder::class,
             ContactsTableSeeder::class,
