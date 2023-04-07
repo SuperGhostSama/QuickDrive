@@ -10,7 +10,7 @@
         <div class="details">
             <div class="recentOrders">
                 <div class="cardHeader">
-                    <h2>Reservations List</h2>
+                    <h2>My Reservations</h2>
                     
                 </div>
 
@@ -26,27 +26,36 @@
                             <td class="text-center">Start Date</td>
                             <td class="text-center">End Date</td>
                             <td class="text-center">Status</td>
-                            <td class="text-center">Operations</td>
                             
                             
                         </tr>
                     </thead>
 
                     <tbody>
-                        
+                        @foreach ($reservations as $reservation)
                         <tr>
-                            <td class="text-center">Salah</td>
-                            <td class="text-center">Chevrolet Camaro</td>
-                            <td class="text-center">HA221138</td>
-                            <td class="text-center">0642781382</td>
-                            <td class="text-center">HA3128931</td>
-                            <td class="text-center">11/05/2000</td>
-                            <td class="text-center">01/07/2023</td>
-                            <td class="text-center">30/07/2023</td>
-                            <td><span class="status pending">Pending</span></td>
+                            <td class="text-center">{{ $reservation->user->name}}</td>
+                            <td class="text-center">{{ $reservation->car->brand->name.' '.$reservation->car->model }}</td>
+                            <td class="text-center">{{ $reservation->CIN}}</td>
+                            <td class="text-center">{{ $reservation->phone_number}}</td>
+                            <td class="text-center">{{ $reservation->driving_licence_number}}</td>
+                            <td class="text-center">{{ $reservation->date_of_birth}}</td>
+                            <td class="text-center">{{ $reservation->start_date}}</td>
+                            <td class="text-center">{{ $reservation->end_date}}</td>
+                            <td><span class="
+                                @if ($reservation->status == "Accepted")
+                                { available }
+
+                                @elseif ($reservation->status == "Rejected") 
+                                { reserved }
+
+                                @else
+                                { pending }
+
+                                @endif  
+                                ">{{ $reservation->status}}</span></td>
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>

@@ -90,16 +90,23 @@ Route::get('cardetail/{car}', [CarsController::class, 'showOne'])->name('car.det
 //Reservation
 Route::group(['controller' => ReservationController::class,'middleware'=>'auth'], function () {
     Route::get('reservations','index')->middleware('permission:view all reservations')->name('reservations');
-    Route::get('reservations/{id}','show')->middleware('permission:view my reservation|view all reservations');
+    // Route::get('reservations/{id}','show')->middleware('permission:view my reservation|view all reservations');
+    Route::get('myreservations','myReservations')->middleware('permission:view my reservation')->name('myreservations');
     Route::post('reservations/{car}','store')->middleware('permission:add reservation')->name('reservations.store');
     Route::put('reservations','update')->middleware('permission:update reservations')->name('reservations.update');
     Route::delete('reservations/{reservation}','destroy')->middleware('permission:delete my reservation|delete all reservations')->name('reservations.destroy');
 });
 
-Route::get('/404', function()
-{
-   return View::make('errors.404');
-});
+
+// Route::get('/MyReservations', function()
+// {
+//    return View::make('pages.dashboard-myreservations');
+// });
+
+// Route::get('/404', function()
+// {
+//    return View::make('errors.404');
+// });
 
 // Route::get('/dashboard', function()
 // {

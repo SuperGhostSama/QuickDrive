@@ -63,6 +63,14 @@
                     <span class="title">Reservations</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ url('myreservations') }}">
+                    <span class="icon">
+                        <ion-icon name="card-outline"></ion-icon>
+                    </span>
+                    <span class="title">My Reservations</span>
+                </a>
+            </li>
 
             <li>
                 <a href="{{ url('profile') }}">
@@ -96,14 +104,13 @@
             </li>
 
             <li>
-                <a href="{{ url('dashboard-reservations') }}">
+                <a href="{{ url('myreservations') }}">
                     <span class="icon">
                         <ion-icon name="card-outline"></ion-icon>
                     </span>
-                    <span class="title">Reservations</span>
+                    <span class="title">My Reservations</span>
                 </a>
             </li>
-
             <li>
                 <a href="{{ url('profile') }}">
                     <span class="icon">

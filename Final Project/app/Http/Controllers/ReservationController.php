@@ -51,27 +51,13 @@ class ReservationController extends Controller
         return back();
     }
 
-    // Get a single reservation
-    public function show(Request $request, $id)
+    public function myReservations()
     {
-    $reservation = Reservation::with('user', 'car')->find($id);
-    if (!$reservation) {
-        return response()->json(['message' => 'Reservation not found!'], 404);
+        $userId = Auth::id();
+        $reservations = Reservation::where('user_id', $userId)->get();
+        return view('pages.dashboard-myreservations', compact('reservations'));
     }
 
-    // Check if the authenticated user has the same ID as the reservation user ID
-    if (Auth::id() !== $reservation->user_id) {
-        // Check if the authenticated user has the "view my reservations" permission
-        if (!Auth::user()->can('view my reservations')) {
-            // Check if the authenticated user has the "view all reservations" permission
-            if (!Auth::user()->can('view all reservations')) {
-                return response()->json(['message' => 'Unauthorized'], 401);
-            }
-        }
-    }
-
-    return response()->json(['reservation' => $reservation]);
-    }
 
     /**
      * Update the specified resource in storage.
