@@ -28,21 +28,13 @@ class ProfileController extends Controller
 
         $user->update($request->all());
 
-        return $this->index();
+        return redirect()->back();
     }
 
     public function deleteProfile(User $user)
     {
-        $logedInUser = Auth::user();
-
-        if (!$logedInUser->can('delete all profile') && $logedInUser->id != $user->id){
-            return response()->json([
-
-                'Error' => "You can't delete this profile"
-            ], 403);
-        }
-
         $user->delete();
+        Auth::logout();
         return view('pages.register');
     }
 }

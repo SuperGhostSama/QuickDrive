@@ -51,7 +51,7 @@ Route::group(['controller' => CarsController::class,'middleware'=>'auth'], funct
 
 // Profile
 Route::group(['controller' => ProfileController::class,'middleware'=>'auth'], function () {
-    Route::get('profile',[ProfileController::class,'index'])->name('profile');
+    Route::get('profile','index')->name('profile');
     Route::post('user/{user}','updateProfile')->middleware('permission:edit my profile|edit all profile')->name('profile.update');
     Route::delete('user/{user}','deleteProfile')->middleware('permission:delete my profile|delete all profile')->name('profile.delete');
 });
