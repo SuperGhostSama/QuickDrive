@@ -41,6 +41,6 @@ class BrandsController extends Controller
         $brand->delete();
 
         // return response()->json(['message' => 'Brand deleted successfully.'], 200);
-        return $this->index();
+        return redirect()->back();
     }
 }

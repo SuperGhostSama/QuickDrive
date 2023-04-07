@@ -100,7 +100,7 @@ class CarsController extends Controller
         //     'message' => 'Car deleted successfully'
         // ]);
 
-        return $this->index();
+        return redirect()->back();
     }
 
     public function allcars()

@@ -64,8 +64,8 @@ Route::group(['controller' => UserController::class,'middleware'=>'auth'], funct
     Route::put('assign-role/', 'assignRole')->middleware('permission:assign role')->name('assign.role');
 });
 
+//Roles
 Route::group(['controller' => RolesController::class,'middleware'=>'auth'], function () {
-    Route::get('roles','index')->name('users');
     Route::get('roles','index')->name('users');
 });
 
@@ -92,8 +92,8 @@ Route::group(['controller' => ReservationController::class,'middleware'=>'auth']
     Route::get('reservations','index')->middleware('permission:view all reservations')->name('reservations');
     Route::get('reservations/{id}','show')->middleware('permission:view my reservation|view all reservations');
     Route::post('reservations/{car}','store')->middleware('permission:add reservation')->name('reservations.store');
-    Route::put('reservations/{id}','update')->middleware('permission:update reservations');
-    Route::delete('reservations/{id}','destroy')->middleware('permission:delete my reservation|delete all reservations');
+    Route::put('reservations','update')->middleware('permission:update reservations')->name('reservations.update');
+    Route::delete('reservations/{reservation}','destroy')->middleware('permission:delete my reservation|delete all reservations')->name('reservations.destroy');
 });
 
 Route::get('/404', function()

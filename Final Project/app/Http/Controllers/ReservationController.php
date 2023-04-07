@@ -44,6 +44,7 @@ class ReservationController extends Controller
         $reservation->date_of_birth = $request->date_of_birth;
         $reservation->user_id = $request->user()->id;
         $reservation->car_id = $car->id;
+        $reservation->status = 'Pending';
         $reservation->save();
 
         // return response()->json(['message' => 'Reservation created successfully!', 'reservation' => $reservation], 201);
@@ -79,49 +80,15 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $reservation = Reservation::find($id);
+        $reservation = Reservation::find($request->id);
         
-        if (!$reservation) {
-            return response()->json([
-                'message' => 'Reservation not found'
-            ], 404);
-        }
+        $reservation->status = $request->input('status');
         
-        $validator = Validator::make($request->all(), [
-            'start_date' => 'required|date',
-            'end_date' => 'required|date',
-            'CIN' => 'required|string',
-            'phone_number' => 'required|string',
-            'driving_licence_number' => 'required|string',
-            'date_of_birth' => 'required|date',
-            'user_id' => 'required|exists:users,id',
-            'car_id' => 'required|exists:cars,id',
-        ]);
+        $reservation->update();
         
-        if ($validator->fails()) {
-            return response()->json([
-                'message' => 'Validation error',
-                'errors' => $validator->errors()
-            ], 400);
-        }
-        
-        $reservation->start_date = $request->input('start_date');
-        $reservation->end_date = $request->input('end_date');
-        $reservation->CIN = $request->input('CIN');
-        $reservation->phone_number = $request->input('phone_number');
-        $reservation->driving_licence_number = $request->input('driving_licence_number');
-        $reservation->date_of_birth = $request->input('date_of_birth');
-        $reservation->user_id = $request->input('user_id');
-        $reservation->car_id = $request->input('car_id');
-        
-        $reservation->save();
-        
-        return response()->json([
-            'message' => 'Reservation updated successfully',
-            'reservation' => $reservation
-        ], 200);
+        return $this->index();
     }
 
     /**
@@ -130,21 +97,11 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Reservation $reservation)
     {
-        $reservation = Reservation::find($id);
-        
-        if (!$reservation) {
-            return response()->json([
-                'message' => 'Reservation not found'
-            ], 404);
-        }
-        
         $reservation->delete();
         
-        return response()->json([
-            'message' => 'Reservation deleted successfully'
-        ], 200);
+        return $this->index();
     }
 
 }
