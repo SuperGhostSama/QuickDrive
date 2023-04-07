@@ -51,13 +51,21 @@ class ReservationController extends Controller
         return back();
     }
 
+    //used to update the reservation edit status modal with ajax
+    public function show(Request $request, $id)
+    {
+        $reservation = Reservation::with('user', 'car')->find($id);
+        
+        return response()->json(['reservation' => $reservation]);
+    }
+
+    // Get a single reservation
     public function myReservations()
     {
         $userId = Auth::id();
         $reservations = Reservation::where('user_id', $userId)->get();
         return view('pages.dashboard-myreservations', compact('reservations'));
     }
-
 
     /**
      * Update the specified resource in storage.
