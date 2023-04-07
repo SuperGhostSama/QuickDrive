@@ -33,11 +33,12 @@ class RolesAndPermissionsSeeder extends Seeder
         $deleteMyReservation ='delete my reservation';
         $deleteAllReservations ='delete all reservations';
 
+        $viewCars = 'view cars';
         $addCar = 'add car';
         $editAllCar = 'edit all cars';
         $deleteAllCar = 'delete all cars';
         
-
+        $viewBrands = 'view brands';
         $addBrand = 'add brand';
         $editBrand = 'edit brand';
         $deleteBrand = 'delete brand';
@@ -66,10 +67,12 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => $deleteAllReservations]);
 
 
+        Permission::create(['name' => $viewCars]);
         Permission::create(['name' => $addCar]);
         Permission::create(['name' => $editAllCar]);
         Permission::create(['name' => $deleteAllCar]);
 
+        Permission::create(['name' => $viewBrands]);
         Permission::create(['name' => $addBrand]);
         Permission::create(['name' => $editBrand]);
         Permission::create(['name' => $deleteBrand]);
@@ -90,10 +93,12 @@ class RolesAndPermissionsSeeder extends Seeder
         Role::create(['name' => $admin])->givePermissionTo(Permission::all());
 
         Role::create(['name' => $moderator])->givePermissionTo([
+            $viewCars,
             $addCar,
             $editAllCar,
             $deleteAllCar,
 
+            $viewBrands,
             $addBrand,
             $editBrand,
             $deleteBrand,

@@ -30,7 +30,7 @@ Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard')
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //Brands
-Route::get('brands', [BrandsController::class, 'index']);
+Route::get('brands', [BrandsController::class, 'index'])->middleware('permission:view brands');
 Route::get('brands/{brand}', [BrandsController::class, 'show']);
 
 Route::group(['controller' => BrandsController::class,'middleware'=>'auth'], function () {
@@ -40,7 +40,7 @@ Route::group(['controller' => BrandsController::class,'middleware'=>'auth'], fun
 });
 
 //Cars crud
-Route::get('cars', [CarsController::class, 'index']);
+Route::get('cars', [CarsController::class, 'index'])->middleware('permission:view cars');
 Route::get('cars/{car}', [CarsController::class, 'show']);
 
 Route::group(['controller' => CarsController::class,'middleware'=>'auth'], function () {
