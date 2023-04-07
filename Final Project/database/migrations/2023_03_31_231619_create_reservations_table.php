@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->enum('status', ['Accepted','Pending' ,'Rejected']);
             $table->timestamps();
         });
         
