@@ -70,9 +70,9 @@ Route::group(['controller' => RolesController::class,'middleware'=>'auth'], func
 });
 
 //Contact Us
-Route::get('contacts', [ContactController::class, 'index'])->name('contactus');
 Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
-Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+Route::get('contacts', [ContactController::class, 'index'])->middleware('permission:view all contacts')->name('contactus');
+Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->middleware('permission:delete contacts')->name('contacts.destroy');
 
 //All Cars
 Route::get('allcars', [CarsController::class, 'allcars'])->name('all.cars');

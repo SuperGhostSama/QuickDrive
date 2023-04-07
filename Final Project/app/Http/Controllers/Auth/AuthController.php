@@ -85,7 +85,7 @@ class AuthController extends Controller
             if(Auth::user()->hasRole(['admin', 'moderator'])){
                 return view('pages.dashboard');
             }
-            return view('errors.404');
+            return view('errors.403');
         }
         return view('pages.login');
     }
