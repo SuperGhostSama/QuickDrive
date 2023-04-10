@@ -66,7 +66,7 @@
             <li>
                 <a href="{{ url('myreservations') }}">
                     <span class="icon">
-                        <ion-icon name="card-outline"></ion-icon>
+                        <ion-icon name="folder-outline"></ion-icon>
                     </span>
                     <span class="title">My Reservations</span>
                 </a>
@@ -106,7 +106,7 @@
             <li>
                 <a href="{{ url('myreservations') }}">
                     <span class="icon">
-                        <ion-icon name="card-outline"></ion-icon>
+                        <ion-icon name="folder-outline"></ion-icon>
                     </span>
                     <span class="title">My Reservations</span>
                 </a>
