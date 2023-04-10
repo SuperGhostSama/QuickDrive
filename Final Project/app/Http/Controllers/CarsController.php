@@ -110,8 +110,10 @@ class CarsController extends Controller
             
             // Delete old image
             $oldImages = json_decode($car->images, true);
-            foreach ($oldImages as $oldImage) {
-                Storage::delete($oldImage);
+            if($oldImages){
+                foreach ($oldImages as $oldImage) {
+                    Storage::delete($oldImage);
+                }
             }
         
             // Upload new image
