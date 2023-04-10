@@ -203,8 +203,13 @@ class CarsController extends Controller
         $fuelTypes = FuelType::all();
         $transmissions = Transmission::all();
             
+        //statistics
+        $brandsCount = Brand::count();
+        $carsCount = Car::count();
+        $availableCarsCount = Car::where('status', 'available')->count();
+        $reservedCarsCount = Car::where('status', 'reserved')->count();
 
-        return view('pages.home',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
+        return view('pages.home',['brandsCount' => $brandsCount,'carsCount' => $carsCount,'availableCarsCount' => $availableCarsCount,'reservedCarsCount' => $reservedCarsCount,'cars' => $cars,'brands' => $brands,'bodyTypes' => $bodyTypes,'fuelTypes' => $fuelTypes,'transmissions' => $transmissions,]);
     }
 
 

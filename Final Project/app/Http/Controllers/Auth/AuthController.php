@@ -74,21 +74,7 @@ class AuthController extends Controller
         return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
     
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function dashboard()
-    {
-        if(Auth::check()){
-            if(Auth::user()->hasRole(['admin', 'moderator'])){
-                return view('pages.dashboard');
-            }
-            return view('errors.403');
-        }
-        return view('pages.login');
-    }
+    
     
     /**
      * Write code on Method

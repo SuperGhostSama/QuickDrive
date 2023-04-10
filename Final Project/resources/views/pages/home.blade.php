@@ -53,28 +53,28 @@
                 <p class="mt-4">QuickDrive is a cutting-edge car rental website that aims to revolutionize the way people rent cars. Our platform provides customers with a seamless and hassle-free experience, allowing them to easily book a car that suits their needs and budget. At QuickDrive, we take pride in our extensive selection of vehicles, from compact cars to luxury SUVs, all of which are well-maintained and ready for the road.</p>
                 <div class="row">
                     <div class="col-6 text-center">
-                        <h3>120</h3>
+                        <h3>{{ $carsCount }}</h3>
                         <hr class="m-0" >
                         <hr class="mt-2 w-50" >
-                        <p>Vehicle In Stock</p>
+                        <p>Vehicles In Stock</p>
                     </div>
                     <div class="col-6 text-center">
-                        <h3>120</h3>
+                        <h3>{{ $brandsCount }}</h3>
                         <hr class="m-0" >
                         <hr class="mt-2 w-50" >
-                        <p>Vehicle Categories</p>
+                        <p>Vehicles Brands</p>
                     </div>
                     <div class="col-6 text-center">
-                        <h3>120</h3>
+                        <h3>{{ $availableCarsCount }}</h3>
                         <hr class="m-0" >
                         <hr class="mt-2 w-50" >
-                        <p>Rented Vehicle</p>
+                        <p>Available Vehicles</p>
                     </div>
                     <div class="col-6 text-center">
-                        <h3>120</h3>
+                        <h3>{{ $reservedCarsCount }}</h3>
                         <hr class="m-0" >
                         <hr class="mt-2 w-50" >
-                        <p>Rentable Vehicle</p>
+                        <p>Reserved Vehicles</p>
                     </div>
                 </div>
 
