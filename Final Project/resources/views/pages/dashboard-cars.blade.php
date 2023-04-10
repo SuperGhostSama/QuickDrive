@@ -67,15 +67,32 @@
                         @foreach ($cars as $car)
                         <tr>
                             <td class="text-center">
-                                @php
-                                $arr = json_decode($car->images);
                                 
-                                @endphp
-                                @if ($arr)
-                                    @foreach ($arr as $image)
-                                    <img width="16" src="{{ "storage".str_replace("public","",$image) }}" alt="">
-                                    @endforeach
-                                @endif
+                                <div id="carouselExample" class="carousel slide" style="width: 172px;">
+                                    <div class="carousel-inner">
+                                    
+
+                                    @php
+                                        $arr = json_decode($car->images);
+                                    @endphp
+
+                                    @if ($arr)
+                                        @foreach ($arr as $image)
+                                        <div class="carousel-item active">
+                                            <img src="{{ "storage".str_replace("public","",$image) }}" class="d-block w-100"  alt="...">
+                                        </div>
+                                        @endforeach
+                                    @endif
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                             </td>
                             <td class="text-center">{{ $car->brand['name'] }}</td>
                             <td class="text-center">{{ $car->model }}</td>
