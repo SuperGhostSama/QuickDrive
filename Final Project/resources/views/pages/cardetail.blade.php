@@ -8,8 +8,17 @@
           <li class="breadcrumb-item"><a href="{{url ('/')}}" style="color: white; text-decoration: none">Home</a></li>
           <li class="breadcrumb-item"><a href="{{url ('allcars')}}" style="color: white; text-decoration: none">Car List</a></li>
           <li class="breadcrumb-item " aria-current="page">Car Detail</li>
+          <span class="
+                badge ms-3
+                @if ($car->status == "Available"){
+                    text-bg-success
+                @else 
+                    text-bg-danger
+                @endif  
+                ">{{$car->status}}</span>
         </ol>
-      </nav>
+        
+    </nav>
 </div>
 @stop
 @section('carousel')

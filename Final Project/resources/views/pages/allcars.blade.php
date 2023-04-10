@@ -40,7 +40,12 @@
         <div class="d-flex flex-wrap justify-content-center">
             @foreach ($cars as $car)
             <a href="{{ route ('car.detail', $car)}}" class="card m-5 border border-info" style="width: 20rem; background-color: #0B0C10;text-decoration: none;">
-                <img src="{{ asset('img/buggati chiron.jpg') }}" class="card-img-top p-3" alt="...">
+                @php
+                $arr = json_decode($car->images);
+                @endphp
+                <img src="{{ "/storage".str_replace("public","",$arr[0]) }}" class="card-img-top p-3" alt="...">
+
+
                 <span class="
                 badge w-25 ms-3
                 @if ($car->status == "Available"){
