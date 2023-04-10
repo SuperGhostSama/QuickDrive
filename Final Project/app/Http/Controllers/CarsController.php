@@ -83,7 +83,7 @@ class CarsController extends Controller
             $car->images = json_encode($uploadedImages);
         } 
     $car->save();
-    return redirect()->back();
+    return redirect()->back()->with('success', 'Car Added Successfully');
     }
 
 
@@ -141,7 +141,7 @@ class CarsController extends Controller
             $car->images = json_encode($uploadedImages);
         } 
     $car->update();
-    return redirect()->back();
+    return redirect()->back()->with('success', 'Car Updated Successfully');
     }
 
 
@@ -150,7 +150,7 @@ class CarsController extends Controller
     {
         $car->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Car Deleted Successfully');
     }
 
     public function allcars()

@@ -41,7 +41,7 @@ class ContactController extends Controller
         $contact->save();
 
         // return response()->json(['contact' => $contact]);
-        return view('pages.home');
+        return redirect()->back()->with('success', 'Sent Successfully');
     }
 
     /**
@@ -69,6 +69,6 @@ class ContactController extends Controller
     {
         $contact->delete();
         
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Deleted Successfully');
     }
 }

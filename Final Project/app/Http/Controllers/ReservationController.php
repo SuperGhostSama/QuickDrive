@@ -48,7 +48,7 @@ class ReservationController extends Controller
         $reservation->save();
 
         // return response()->json(['message' => 'Reservation created successfully!', 'reservation' => $reservation], 201);
-        return back();
+        return redirect()->back()->with('success', 'Reservation Sent Successfully');
     }
 
     //used to update the reservation edit status modal with ajax
@@ -82,7 +82,7 @@ class ReservationController extends Controller
         
         $reservation->update();
         
-        return $this->index();
+        return redirect()->back()->with('success', 'Reservation Status Updated Successfully');
     }
 
     /**
@@ -95,7 +95,7 @@ class ReservationController extends Controller
     {
         $reservation->delete();
         
-        return $this->index();
+        return redirect()->back()->with('success', 'Reservation Deleted Successfully');
     }
 
 }

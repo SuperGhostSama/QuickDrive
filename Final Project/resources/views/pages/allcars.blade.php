@@ -43,8 +43,9 @@
                 @php
                 $arr = json_decode($car->images);
                 @endphp
-                <img src="{{ "/storage".str_replace("public","",$arr[0]) }}" class="card-img-top p-3" alt="...">
-
+                @if ($arr)
+                    <img src="{{ "/storage".str_replace("public","",$arr[0]) }}" class="card-img-top p-3" alt="...">
+                @endif
 
                 <span class="
                 badge w-25 ms-3

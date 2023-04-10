@@ -1,5 +1,15 @@
 @extends('layouts.default')
+
+
+    
+
 @section('banner')
+    @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    @endif
     @include('includes.banner')
 @stop
 
@@ -14,8 +24,9 @@
                 @php
                 $arr = json_decode($car->images);
                 @endphp
-                <img src="{{ "storage".str_replace("public","",$arr[0]) }}" class="card-img-top p-3" alt="...">
-                
+                @if ($arr)
+                    <img src="{{ "storage".str_replace("public","",$arr[0]) }}" class="card-img-top p-3" alt="...">
+                @endif
                 <span class="
                 badge w-25 ms-3
                 @if ($car->status == "Available"){
@@ -101,7 +112,7 @@
         </a>
     </div>
 </section>
-
+    
 <section id="contactUs">
     <div class="container text-white" >
         <div class="row ">

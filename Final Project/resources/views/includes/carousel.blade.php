@@ -8,13 +8,14 @@
             $arr = json_decode($car->images);
           @endphp
 
+        @if ($arr)
           @foreach ($arr as $image)
 
             <li class="splide__slide" >
               <img src="{{ "/storage".str_replace("public","",$image) }}" alt="" >
             </li>
           @endforeach
-          
+        @endif
         </ul>
       </div>
     </section>
@@ -24,13 +25,13 @@
       @php
         $arr = json_decode($car->images);
       @endphp
-
+    @if ($arr)
       @foreach ($arr as $image)
 
         <li class="thumbnail">
           <img src="{{ "/storage".str_replace("public","",$image) }}" alt="">
         </li>
       @endforeach
-
+    @endif
     </ul>
   </div>

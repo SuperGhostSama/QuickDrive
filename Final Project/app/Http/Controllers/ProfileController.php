@@ -28,13 +28,13 @@ class ProfileController extends Controller
 
         $user->update($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Profile Updated Successfully');;
     }
 
     public function deleteProfile(User $user)
     {
         $user->delete();
         Auth::logout();
-        return view('pages.register');
+        return view('pages.register')->with('success', 'Account Deleted Successfully');;
     }
 }

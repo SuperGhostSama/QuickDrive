@@ -17,7 +17,7 @@ class BrandsController extends Controller
     {
         Brand::create($request->all());
 
-        return $this->index();
+        return redirect()->back()->with('success', 'Brand Added Successfully');
     }
 
     public function show(Brand $brand)
@@ -33,7 +33,7 @@ class BrandsController extends Controller
         $brand = Brand::find($request->id);
         $brand->update($request->all());
 
-        return $this->index();
+        return redirect()->back()->with('success', 'Brand Updated Successfully');
     }
 
     public function destroy(Brand $brand)
@@ -41,6 +41,6 @@ class BrandsController extends Controller
         $brand->delete();
 
         // return response()->json(['message' => 'Brand deleted successfully.'], 200);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Brand Deleted Successfully');
     }
 }

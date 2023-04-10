@@ -1,5 +1,13 @@
 @include('includes.head')
 @include('includes.nav-bar')
+
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    
 <section id="signupSection">
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-sm-12 col-md-9 col-lg-5 text-white border border-4 border-secondary rounded p-5 ">

@@ -23,7 +23,7 @@ class UserController extends Controller
 
         $user->syncRoles([$request->role]);
 
-        return $this->index();
+        return redirect()->back()->with('success', 'Role Changed Successfully');
     }
 
     
