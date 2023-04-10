@@ -12,7 +12,6 @@ class CarsTableSeeder extends Seeder
     {
         // Add the first car
         DB::table('cars')->insert([
-            'image' => 'car1.jpg',
             'brand_id' => 1,
             'model' => 'Camry',
             'body_type_id' => 1,
@@ -31,7 +30,6 @@ class CarsTableSeeder extends Seeder
 
         ]);
         DB::table('cars')->insert([
-            'image' => 'car2.jpg',
             'brand_id' => 2,
             'model' => 'Civic',
             'body_type_id' => 2,

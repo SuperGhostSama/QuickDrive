@@ -9,7 +9,10 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
+            // $table->string('image')->nullable();
+            $table->json('images')->nullable();
+
+
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->string('model');

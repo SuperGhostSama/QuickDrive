@@ -2,7 +2,7 @@
 <div class="modal fade" id="modal-cars" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="{{ route('cars.store') }}" method="POST" id="form" >
+        <form action="{{ route('cars.store') }}" method="POST" id="form" enctype="multipart/form-data">
           @csrf
 
           <div class="modal-header">
@@ -94,6 +94,10 @@
                     <option value="Reserved">Reserved</option>
                 </select>                  
               </div>
+              <div class="mb-3">
+                <label for="images">Images :</label>
+                <input id="images" type="file" name="images[]" multiple>
+            </div>
           </div>
 
           <div class="modal-footer">

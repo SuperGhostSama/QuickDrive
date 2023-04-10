@@ -7,6 +7,7 @@ use App\Models\BodyType;
 use App\Models\FuelType;
 use App\Models\Transmission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CarsController extends Controller
 {
@@ -37,7 +38,6 @@ class CarsController extends Controller
     public function store(Request $request)
     {
         $car = new Car();
-        $car->image = $request->input('image');
         $car->brand_id = $request->input('brand');
         $car->model = $request->input('model');
         $car->body_type_id = $request->input('bodytype');
@@ -53,21 +53,43 @@ class CarsController extends Controller
         $car->cargo_volume = $request->input('cargo');
         $car->price = $request->input('price');
         $car->status = $request->input('status');
-        $car->save();
 
-        // return response()->json([
-        //     'message' => 'Car created successfully',
-        //     'data' => $car
-        // ]);
-
-        return $this->index();
+        if ($request->hasFile('images')) {
+        
+            // Upload new image
+            $images = $request->file('images');
+            $uploadedImages = [];
+            $i = 0;
+            foreach ($images as $image) {
+                // Get the file extension
+                $extension = strtolower($image->getClientOriginalExtension());
+                
+                // Check if the file extension is jpg or webp
+                if ($extension == 'jpg' || $extension == 'webp') {
+                    // Check if the file size is less than 100KB
+                    if ($image->getSize() <= 100000) {
+                        $path = $image->store('public/upload');
+                        if ($path) {
+                            $uploadedImages[$i] = $path;
+                            $i++;
+                        }
+                    } else {
+                        return redirect()->back()->with(['error' => 'File over 100KB']);
+                    }
+                } else {
+                    return redirect()->back()->with(['error' => 'File type not supported']);
+                }
+            }
+            $car->images = json_encode($uploadedImages);
+        } 
+    $car->save();
+    return redirect()->back();
     }
+
 
     public function update(Request $request)
     {
         $car = Car::find($request->id);
-        // dd($car);
-        $car->image = $request->input('image');
         $car->brand_id = $request->input('brand');
         $car->model = $request->input('model');
         $car->body_type_id = $request->input('bodytype');
@@ -83,22 +105,50 @@ class CarsController extends Controller
         $car->cargo_volume = $request->input('cargo');
         $car->price = $request->input('price');
         $car->status = $request->input('status');
-        $car->update();
-    
-        // return response()->json([
-        //     'message' => 'Car updated successfully',
-        //     'data' => $car
-        // ]);
-        return $this->index();
+        
+        if ($request->hasFile('images')) {
+            
+            // Delete old image
+            $oldImages = json_decode($car->images, true);
+            foreach ($oldImages as $oldImage) {
+                Storage::delete($oldImage);
+            }
+        
+            // Upload new image
+            $images = $request->file('images');
+            $uploadedImages = [];
+            $i = 0;
+            foreach ($images as $image) {
+                // Get the file extension
+                $extension = strtolower($image->getClientOriginalExtension());
+                
+                // Check if the file extension is jpg or webp
+                if ($extension == 'jpg' || $extension == 'webp') {
+                    // Check if the file size is less than 100KB
+                    if ($image->getSize() <= 100000) {
+                        $path = $image->store('public/upload');
+                        if ($path) {
+                            $uploadedImages[$i] = $path;
+                            $i++;
+                        }
+                    } else {
+                        return redirect()->back()->with(['error' => 'File over 100KB']);
+                    }
+                } else {
+                    return redirect()->back()->with(['error' => 'File type not supported']);
+                }
+            }
+            $car->images = json_encode($uploadedImages);
+        } 
+    $car->update();
+    return redirect()->back();
     }
+
+
     
     public function destroy(Car $car)
     {
         $car->delete();
-    
-        // return response()->json([
-        //     'message' => 'Car deleted successfully'
-        // ]);
 
         return redirect()->back();
     }

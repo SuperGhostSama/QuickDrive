@@ -16,6 +16,12 @@
             background: transparent;
         }
     </style>
+    
+    @if (session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
 
             <!-- ================ Order Details List ================= -->
         <div class="details">
@@ -52,7 +58,14 @@
                     <tbody>
                         @foreach ($cars as $car)
                         <tr>
-                            <td class="text-center">XX</td>
+                            <td class="text-center">
+                                @php
+                                $arr = json_decode($car->images);
+                                @endphp
+                                @foreach ($arr as $image)
+                                <img width="16" src="{{ "storage".str_replace("public","",$image) }}" alt="">
+                                @endforeach
+                            </td>
                             <td class="text-center">{{ $car->brand['name'] }}</td>
                             <td class="text-center">{{ $car->model }}</td>
                             <td class="text-center">{{ $car->bodytype['name'] }}</td>
