@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Reservation;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
@@ -9,8 +9,9 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\StatisticsController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,8 @@ Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->midd
 Route::get('allcars', [CarsController::class, 'allcars'])->name('all.cars');
 Route::get('allcars/ascending', [CarsController::class, 'sortAscending'])->name('cars.ascending');
 Route::get('allcars/descending', [CarsController::class, 'sortDescending'])->name('cars.descending');
+Route::get('allcars/search',[SearchController::class, 'search'])->name('search');
+
 
 
 //Landing page
@@ -97,29 +100,6 @@ Route::group(['controller' => ReservationController::class,'middleware'=>'auth']
     Route::delete('reservations/{reservation}','destroy')->middleware('permission:delete my reservation|delete all reservations')->name('reservations.destroy');
     Route::get('myreservations','myReservations')->middleware('permission:view my reservation')->name('myreservations');
 });
-
-
-// Route::get('/MyReservations', function()
-// {
-//    return View::make('pages.dashboard-myreservations');
-// });
-
-// Route::get('/404', function()
-// {
-//    return View::make('errors.404');
-// });
-
-// Route::get('/dashboard', function()
-// {
-//    return View::make('pages.dashboard');
-// });
-
-
-// Route::get('/dashboard-reservations', function()
-// {
-//    return View::make('pages.dashboard-reservations');
-// });
-
 
 
 

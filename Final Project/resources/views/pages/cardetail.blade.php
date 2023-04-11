@@ -83,7 +83,7 @@
       
         <div class="col-lg-11">
           <h3>Already Reserved</h3>
-          <form action="#" method="POST" id="form">
+          <form action="{{ url (404)}}" method="POST" id="form">
               @csrf
               <div class="mb-3">
                 <label for="CIN" class="form-label">CIN</label>
@@ -113,7 +113,7 @@
                   <input type="date" class="form-control" id="enddate" name="end_date" readonly>
                 </div>
               </div>
-              <button name="send" class=" col-10 col-sm-2 text-white w-100 p-1 mb-5" disabled>Send</button>
+              <button name="send" class=" col-10 col-sm-2 text-white w-100 p-1 mb-5" disabled>Not Available</button>
             </form>
         </div>
       
