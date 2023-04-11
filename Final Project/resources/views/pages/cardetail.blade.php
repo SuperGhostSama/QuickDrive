@@ -39,6 +39,10 @@
         <p id="carDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas diam nam eu nulla a. Vestibulum aliquet facilisi interdum nibh blandit. Leo amet ultricies cum cras sit sed curabitur ultrices faucibus. Ultrices pellentesque ultricies semper leo maecenas. Amet, et sagittis consectetur at euismod iaculis.
           Id non velit auctor praesent a amet risus facilisis. Lobortis nisl placerat orci, eu nisl ornare. Eu vitae pellentesque rhoncus eros vivamus est purus enim dui. Leo ac pharetra massa tristique. Libero aliquam pellentesque laoreet dui pulvinar facilisis. Id lectus mauris senectus sodales porta malesuada tincidunt et. Quam dui nulla venenatis suscipit nulla lectus volutpat, augue purus. Sed condimentum parturient maecenas viverra pulvinar leo augue nunc.</p>
       </div>
+
+      {{-- Reservation --}}
+
+      @if ($car->status == "Available")
         <div class="col-lg-11">
           <h3>Reserve Now</h3>
           <form action="{{ route('reservations.store',$car) }}" method="POST" id="form">
@@ -73,8 +77,47 @@
               </div>
               <button type="submit" name="send" class="btn-prim col-10 col-sm-2 text-white w-100 p-1 mb-5">Send</button>
             </form>
-
         </div>
+      
+      @else
+      
+        <div class="col-lg-11">
+          <h3>Already Reserved</h3>
+          <form action="#" method="POST" id="form">
+              @csrf
+              <div class="mb-3">
+                <label for="CIN" class="form-label">CIN</label>
+                <input type="text" class="form-control" name="CIN" id="CIN"  placeholder="" required readonly>
+              </div>
+              <div class="mb-3">
+                <label for="driving_licence_number" class="form-label">Driving Licence Number</label>
+                <input type="text" class="form-control" name="driving_licence_number" id="driving_licence_number"  placeholder="" required readonly>
+              </div>
+              
+              <div class="mb-3">
+                <label for="contactPhone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" name="phone_number" id="contactPhone" required readonly>
+              </div>
+
+              <div class="d-flex align-items-center flex-column">
+                <div class="form-group mb-3 w-50">
+                  <label for="birthday">Date Of Birth</label>
+                  <input type="date" class="form-control" id="birthday" name="date_of_birth" readonly>
+                </div>
+                <div class="form-group mb-3 w-50">
+                  <label for="startdate">Start Date</label>
+                  <input type="date" class="form-control" id="startdate" name="start_date" readonly>
+                </div>
+                <div class="form-group mb-3 w-50">
+                  <label for="enddate">End Date</label>
+                  <input type="date" class="form-control" id="enddate" name="end_date" readonly>
+                </div>
+              </div>
+              <button name="send" class=" col-10 col-sm-2 text-white w-100 p-1 mb-5" disabled>Send</button>
+            </form>
+        </div>
+      
+      @endif
     </div>
     
     <div class="col-lg-4 ">
