@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-sm-12 col-md-9 col-lg-5 text-white border border-4 border-secondary rounded p-5 ">
             <h3 class="text-center mb-4 fw-bold">Sign Up</h3>
-            <form action="{{ route('register.post') }}" method="POST">
+            <form action="{{ route('register.post') }}" method="POST" >
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label ">Full Name</label>

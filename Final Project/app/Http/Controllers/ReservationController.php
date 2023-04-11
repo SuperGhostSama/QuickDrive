@@ -82,6 +82,12 @@ class ReservationController extends Controller
         
         $reservation->update();
         
+        if ($reservation->status == 'Accepted') {
+            $car = Car::find($reservation->car_id);
+            $car->status = 'Reserved';
+            $car->update();
+        }
+
         return redirect()->back()->with('success', 'Reservation Status Updated Successfully');
     }
 
