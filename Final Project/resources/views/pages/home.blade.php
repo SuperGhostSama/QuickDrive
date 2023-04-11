@@ -20,7 +20,7 @@
     </div>
     <div class="d-flex flex-wrap justify-content-center">
         @foreach ($cars as $car)
-            <a href="{{url ('cardetail',$car)}}" class="card m-5 border border-info" style="width: 20rem; background-color: #0B0C10;text-decoration: none;">
+            <a href="{{url ('cardetail',$car)}}" class="card m-5 border border-secondary" style="width: 20rem; background-color: #0B0C10;text-decoration: none;">
                 @php
                 $arr = json_decode($car->images);
                 @endphp

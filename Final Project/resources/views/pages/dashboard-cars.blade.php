@@ -68,7 +68,9 @@
                         <tr>
                             <td class="text-center">
                                 
-                                <div id="carouselExample" class="carousel slide" style="width: 172px;">
+                                <div id="carousel{{ $car->id }}" class="carousel carousel-dark slide" style="width: 172px;">
+
+                                    
                                     <div class="carousel-inner">
                                     
 
@@ -83,12 +85,13 @@
                                         </div>
                                         @endforeach
                                     @endif
+
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ $car->id }}" data-bs-slide="prev">
                                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                       <span class="visually-hidden">Previous</span>
                                     </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ $car->id }}" data-bs-slide="next">
                                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                       <span class="visually-hidden">Next</span>
                                     </button>

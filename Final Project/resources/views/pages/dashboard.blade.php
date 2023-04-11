@@ -16,7 +16,7 @@
                     <div class="cardHeader">
                         <h2>Statistic Graph</h2>
                     </div>
-                    <canvas id="myChart" ></canvas>
+                    <canvas id="myChart" style="max-width: 100%" ></canvas>
                 </div>
             </div>
         </div>
@@ -38,11 +38,13 @@
       }]
     },
     options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
+    scales: {
+      y: {
+        beginAtZero: true
       }
+    },
+      responsive: true,
+      // maintainAspectRatio: false
     }
   });
 </script>
