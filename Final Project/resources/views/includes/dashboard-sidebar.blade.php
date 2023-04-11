@@ -142,9 +142,9 @@
         {{-- <div class="user">
             <img src="{{ asset('img/customer01.jpg') }}" alt="">
         </div> --}}
-        <div class="badge text-bg-primary fs-6">
+        <a class="badge text-bg-primary fs-6 text-decoration-none" href="/">
             <span>{{auth()->user()->name}}</span>
-        </div>
+        </a>
 
 
     </div>
