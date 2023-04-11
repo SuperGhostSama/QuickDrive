@@ -28,8 +28,9 @@ Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('register', [AuthController::class, 'registration'])->name('register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [StatisticsController::class, 'dashboardStatistics'])->name('dashboard'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+//Statistics
+Route::get('dashboard', [StatisticsController::class, 'dashboardStatistics'])->name('dashboard'); 
 
 //Brands
 Route::get('brands', [BrandsController::class, 'index'])->middleware('permission:view brands');

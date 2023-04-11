@@ -176,7 +176,7 @@ class CarsController extends Controller
         $bodyTypes = BodyType::all();
         $fuelTypes = FuelType::all();
         $transmissions = Transmission::all();
-
+        
         return view('pages.allcars',compact('cars','brands','bodyTypes','fuelTypes','transmissions'));
     }
 

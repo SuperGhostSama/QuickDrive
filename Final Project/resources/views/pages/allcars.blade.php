@@ -24,7 +24,7 @@
         </div>
 
         <div class="d-flex justify-content-center ">
-            <h3 class="text-white ">20 Results</h3>
+            <h3 class="text-white ">4 Results</h3>
         </div>
 
         <div class="dropdown d-flex justify-content-center">
