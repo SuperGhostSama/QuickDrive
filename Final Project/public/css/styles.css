@@ -102,3 +102,16 @@ body{
 .dropdown-menu[data-bs-popper] {
     left: -17px;
 } */
+
+#map {
+    display: block;
+    width: 50%;
+}
+
+@media (max-width: 992px) {
+    #map {
+        margin: 0 auto;
+        width: -webkit-fill-available;
+        height: 300px;
+    }
+}
