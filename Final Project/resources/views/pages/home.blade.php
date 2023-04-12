@@ -116,7 +116,9 @@
 <section id="contactUs">
     <div class="container text-white" >
         <div class="row ">
-                <img class="col-sm-12 col-lg-6 p-5" src="{{ asset('img/maps.png') }}" alt="maps">
+            
+                <div class="col-lg-6" id="map" ></div>
+                {{-- <img class="col-sm-12 col-lg-6 p-5" src="{{ asset('img/maps.png') }}" alt="maps"> --}}
             <div class="col-sm-12 col-lg-6 p-5">
                 <h3>Contact Us</h3>
                 <form action="{{ route('contacts.store') }}" method="POST" id="form">
@@ -153,4 +155,17 @@
     </div>
 </section>
 
+<script>
+    //Leaflet Js
+
+    var map = L.map('map').setView([32.24757423036315, -8.521663357134758], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([32.24757423036315, -8.521663357134758]).addTo(map)
+    .bindPopup('YouCode')
+    .openPopup();
+</script>
 @stop
