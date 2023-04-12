@@ -2,7 +2,7 @@
 <div class="modal fade" id="modal-cars-edit" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="{{ route('cars.update') }}" method="POST" id="form" enctype="multipart/form-data">
+      <form action="{{ route('cars.update') }}" method="POST" id="form" enctype="multipart/form-data" data-parsley-validate>
         @csrf
         @method('PUT')
         <div class="modal-header">
@@ -21,8 +21,8 @@
             </div>
             <div class="mb-3">
               <label class="form-label" >Model</label>
-              <input name="model" type="text" class="form-control" id="model" value=""  required/>
-            </div>
+              <input name="model" type="text" class="form-control" id="model" value=""  required data-parsley-pattern="^[a-zA-Z0-9 ]*$"/>
+            </number
             <div class="mb-3">
               <label class="form-label" >Body Type</label>
               <select name="bodytype"  class="form-select" aria-label="Default select example">
@@ -31,7 +31,7 @@
             </div>
             <div class="mb-3">
               <label class="form-label" >Seats</label>
-              <input name="seats" type="text" class="form-control" id="seats" value=""  required/>
+              <input name="seats" type="number" class="form-control" id="seats" value=""  required data-parsley-pattern="^[0-9]+$"/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Color</label>
@@ -45,7 +45,7 @@
             </div>
             <div class="mb-3">
               <label class="form-label" >Mileage</label>
-              <input name="mileage" type="text" class="form-control" id="mileage" value=""  required/>
+              <input name="mileage" type="number" class="form-control" id="mileage" value=""  required data-parsley-pattern="^[0-9]+$"/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Transmission</label>
@@ -55,27 +55,27 @@
             </div>
             <div class="mb-3">
               <label class="form-label" >Power</label>
-              <input name="power" type="text" class="form-control" id="power" value=""  required/>
+              <input name="power" type="number" class="form-control" id="power" value=""  required data-parsley-pattern="^[0-9]+$"/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Length</label>
-              <input name="length" type="text" class="form-control" id="length" value=""  required/>
+              <input name="length" type="number" class="form-control" id="length" value=""  require data-parsley-pattern="^[0-9]+$"d/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Width</label>
-              <input name="width" type="text" class="form-control" id="width" value=""  required/>
+              <input name="width" type="number" class="form-control" id="width" value=""  required data-parsley-pattern="^[0-9]+$"/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Height</label>
-              <input name="height" type="text" class="form-control" id="height" value=""  required/>
+              <input name="height" type="number" class="form-control" id="height" value=""  required data-parsley-pattern="^[0-9]+$"/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Cargo Volume</label>
-              <input name="cargo" type="text" class="form-control" id="cargo" value=""  required/>
+              <input name="cargo" type="number" class="form-control" id="cargo" value=""  required data-parsley-pattern="^[0-9]+$"/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Price</label>
-              <input name="price" type="text" class="form-control" id="price" value=""  required/>
+              <input name="price" type="number" class="form-control" id="price" value=""  required data-parsley-pattern="^[0-9]+$"/>
             </div>
             <div class="mb-3">
               <label class="form-label" >Status</label>

@@ -16,21 +16,24 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label ">Full Name</label>
-                    <input name="name" type="text" class="form-control opacity-50" id="name" aria-describedby="fullName" placeholder="Full Name" required >
+                    <input name="name" type="text" class="form-control opacity-50" id="name" aria-describedby="fullName" placeholder="Full Name" required oninput="validateName()">
+                    <span id="validateName"></span>
                     @if ($errors->has('name'))
                         <span class="text-danger">{{ $errors->first('name') }}</span>
                     @endif
                 </div>
                 <div class="mb-3">
                     <label for="email_address" class="form-label ">Email address</label>
-                    <input name="email" type="email" class="form-control opacity-50" id="email_address" aria-describedby="emailHelp" placeholder="email@mail.com" required >
+                    <input name="email" type="email" class="form-control opacity-50" id="email_address" aria-describedby="emailHelp" placeholder="email@mail.com" required oninput="validateEmail()">
+                    <span id="validateEmail"></span>
                     @if ($errors->has('email'))
                         <span class="text-danger">{{ $errors->first('email') }}</span>
                     @endif
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control opacity-50" id="password">
+                    <input name="password" type="password" class="form-control opacity-50" id="password" oninput="validatePassword()">
+                    <span id="validatePassword"></span>
                     @if ($errors->has('password'))
                         <span class="text-danger">{{ $errors->first('password') }}</span>
                     @endif
@@ -43,4 +46,5 @@
         </div>
     </div>
 </section>
+<script src="{{ asset('js/register-validation.js') }}"></script>
 @include('includes.script')

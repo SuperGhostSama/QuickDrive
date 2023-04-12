@@ -23,16 +23,16 @@
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h4 class="text-right">Profile Settings</h4>
                             </div>
-                <form id="updateForm" action="{{ route('profile.update',auth()->id()) }}" method="POST">
+                <form id="updateForm" action="{{ route('profile.update',auth()->id()) }}" method="POST" data-parsley-validate>
                 @csrf
                     <div class="row mt-2">
                         <div class="col-md-12"><label class="labels">Name</label>
-                            <input form="updateForm" type="text" name="name" class="form-control" placeholder="first name" value="{{auth()->user()->name}}">
+                            <input form="updateForm" type="text" name="name" class="form-control" placeholder="first name" data-parsley-pattern="/^[a-zA-Z ]*$/" required value="{{auth()->user()->name}}">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Email</label>
-                            <input form="updateForm" type="email" name="email" class="form-control" placeholder="enter email" value="{{auth()->user()->email}}">
+                            <input form="updateForm" type="email" name="email" class="form-control" placeholder="enter email" data-parsley-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required value="{{auth()->user()->email}}">
                         </div>
                         <div class="col-md-12"><label class="labels">Password</label>
                             <input form="updateForm" type="password" name="password" class="form-control" placeholder="" value="">

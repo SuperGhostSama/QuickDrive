@@ -14,3 +14,8 @@
 {{-- LeafletJs --}}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+{{-- PARSLEY --}}
+<link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css">
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+<script src="https://parsleyjs.org/dist/parsley.min.js"></script>

@@ -2,7 +2,7 @@
 <div class="modal fade" id="modal-roles" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="{{ route ('assign.role')}}" method="POST" id="form" >
+        <form action="{{ route ('assign.role')}}" method="POST" id="form" data-parsley-validate>
           @csrf
           @method('PUT')
 

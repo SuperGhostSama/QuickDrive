@@ -52,7 +52,7 @@ class AuthController extends Controller
             ->withSuccess('You have Successfully loggedin');
         }
         
-        return redirect()->route("register")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect()->route("register")->withSuccess('You have entered invalid credentials');
     }
       
     /**

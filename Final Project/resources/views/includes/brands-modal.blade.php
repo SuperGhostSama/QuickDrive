@@ -2,7 +2,7 @@
 <div class="modal fade" id="modal-brands" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="{{ route('brands.store') }}" method="POST" id="form" >
+        <form action="{{ route('brands.store') }}" method="POST" id="form" data-parsley-validate>
           @csrf
           <div class="modal-header">
             <h5 class="modal-title" id="modal-title">Brands</h5>
@@ -11,7 +11,7 @@
           <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" >Brand</label>
-                <input name="name" type="text" class="form-control" id="brand" value=""  required/>
+                <input name="name" type="text" class="form-control" id="brand" value=""  required data-parsley-pattern="^[A-Z][a-z]*$"/>
               </div>
           </div>
 

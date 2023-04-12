@@ -45,15 +45,15 @@
       @if ($car->status == "Available")
         <div class="col-lg-11">
           <h3>Reserve Now</h3>
-          <form action="{{ route('reservations.store',$car) }}" method="POST" id="form">
+          <form action="{{ route('reservations.store',$car) }}" method="POST" id="form" data-parsley-validate>
               @csrf
               <div class="mb-3">
                 <label for="CIN" class="form-label">CIN</label>
-                <input type="text" class="form-control" name="CIN" id="CIN"  placeholder="" required>
+                <input type="text" class="form-control" name="CIN" id="CIN"  placeholder="" required data-parsley-pattern="^[A-Z0-9]+$">
               </div>
               <div class="mb-3">
                 <label for="driving_licence_number" class="form-label">Driving Licence Number</label>
-                <input type="text" class="form-control" name="driving_licence_number" id="driving_licence_number"  placeholder="" required>
+                <input type="text" class="form-control" name="driving_licence_number" id="driving_licence_number"  placeholder="" required data-parsley-pattern="^[A-Z0-9]+$">
               </div>
               
               <div class="mb-3">
