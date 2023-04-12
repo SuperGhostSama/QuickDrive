@@ -1,0 +1,2 @@
+//PARSLEY
+$('form').parsley();
