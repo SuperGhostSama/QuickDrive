@@ -66,15 +66,15 @@ class CarsController extends Controller
                 
                 // Check if the file extension is jpg or webp
                 if ($extension == 'jpg' || $extension == 'webp') {
-                    // Check if the file size is less than 100KB
-                    if ($image->getSize() <= 100000) {
+                    // Check if the file size is less than 150KB
+                    if ($image->getSize() <= 150000) {
                         $path = $image->store('public/upload');
                         if ($path) {
                             $uploadedImages[$i] = $path;
                             $i++;
                         }
                     } else {
-                        return redirect()->back()->with(['error' => 'File over 100KB']);
+                        return redirect()->back()->with(['error' => 'File over 150KB']);
                     }
                 } else {
                     return redirect()->back()->with(['error' => 'File type not supported']);
@@ -126,15 +126,15 @@ class CarsController extends Controller
                 
                 // Check if the file extension is jpg or webp
                 if ($extension == 'jpg' || $extension == 'webp') {
-                    // Check if the file size is less than 100KB
-                    if ($image->getSize() <= 100000) {
+                    // Check if the file size is less than 150KB
+                    if ($image->getSize() <= 150000) {
                         $path = $image->store('public/upload');
                         if ($path) {
                             $uploadedImages[$i] = $path;
                             $i++;
                         }
                     } else {
-                        return redirect()->back()->with(['error' => 'File over 100KB']);
+                        return redirect()->back()->with(['error' => 'File over 150KB']);
                     }
                 } else {
                     return redirect()->back()->with(['error' => 'File type not supported']);

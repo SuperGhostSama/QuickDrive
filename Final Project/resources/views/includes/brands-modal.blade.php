@@ -11,7 +11,7 @@
           <div class="modal-body">
               <div class="mb-3">
                 <label class="form-label" >Brand</label>
-                <input name="name" type="text" class="form-control" id="brand" value=""  required data-parsley-pattern="^[A-Z][a-z]*$"/>
+                <input name="name" type="text" class="form-control" id="brand" value=""  required data-parsley-pattern="^[a-zA-Z0-9 ]*$"/>
               </div>
           </div>
 
