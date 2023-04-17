@@ -1,5 +1,23 @@
 # QuickDrive - Car Rental Website
 
+## Table Of Content
+
+1-[Company Presentation](#Company Presentation)
+
+2-[Target Addressed by the Site](#Target Addressed by the Site)
+
+3-[Framework](#Framework)
+
+4-[Project Perimeter](#Project Perimeter)
+
+5-[Description](#Description)
+
+6-[Choice of Technology](#Choice of Technology)
+
+7-[Installation](#Installation)
+
+8-[Credits](#Credits)
+
 ## Company Presentation
 QuickDrive is a car rental company dedicated to providing fast and convenient vehicle rental options to our customers.
 
@@ -31,11 +49,11 @@ The site must be compatible with all standard browsers: Google Chrome, Android, 
 ## Installation
 For installation, users will need to have Composer on their system and run the following command:
 
-composer install.
+`composer install`
 
-npm install.
+`npm install`
 
-php artisan key:generate.
+`php artisan key:generate`
 
 ## Credits
 Front-end: HTML, CSS, Bootstrap, and JavaScript.
