@@ -32,11 +32,15 @@ The site must be compatible with all standard browsers: Google Chrome, Android, 
 For installation, users will need to have Composer on their system and run the following command:
 
 composer install.
+
 npm install.
+
 php artisan key:generate.
 
 ## Credits
 Front-end: HTML, CSS, Bootstrap, and JavaScript.
+
 Back-end: Laravel Framework 9.52.5.
+
 Libraries: SplideJs for carousel, LeafletJs for map, Spatie for roles and permissions, and ParsleyJs for form validation.
 
