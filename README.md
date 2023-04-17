@@ -31,9 +31,9 @@ The site must be compatible with all standard browsers: Google Chrome, Android, 
 ## Installation
 For installation, users will need to have Composer on their system and run the following command:
 
-composer install 
-npm install 
-php artisan key:generate
+composer install.
+npm install.
+php artisan key:generate.
 
 ## Credits
 Front-end: HTML, CSS, Bootstrap, and JavaScript.
