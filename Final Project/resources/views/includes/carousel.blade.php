@@ -1,5 +1,5 @@
 <!-- Carousel SplideJS-->
-<div>
+<div class="col-lg-6 col-md-12 ms-auto me-auto">
     <section id="main-carousel" class="splide" aria-label="My Awesome Gallery" >
       <div class="splide__track" >
         <ul class="splide__list" >

@@ -162,6 +162,7 @@ body {
   align-items: center;
   font-size: 2.5rem;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .search {
@@ -439,7 +440,7 @@ body {
     left: 0;
   }
   .toggle {
-    z-index: 10001;
+    /* z-index: 10001; */
   }
   .main.active .toggle {
     color: #fff;
