@@ -20,6 +20,8 @@
 
 [UML Diagrams](#UML-Diagrams)
 
+[Website Preview](#Website-Preview)
+
 ## Company Presentation
 QuickDrive is a car rental company dedicated to providing fast and convenient vehicle rental options to our customers.
 
