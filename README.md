@@ -68,6 +68,6 @@ Libraries: SplideJs for carousel, LeafletJs for map, Spatie for roles and permis
 
 ![UseCase Diagram](https://imgur.com/a/JqDw7rW)
 
-![Sequence-Diagram](image_url)
+![Sequence Diagram](https://media.discordapp.net/attachments/1018230183834165309/1097458396359295037/Class_Diagram.png?width=1121&height=670)
 
 
