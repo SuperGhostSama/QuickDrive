@@ -64,9 +64,9 @@ Libraries: SplideJs for carousel, LeafletJs for map, Spatie for roles and permis
 
 ##UML Diagrams 
 
-![Class-Diagram](https://imgur.com/a/4ms5mkS)
+![Class Diagram](https://imgur.com/a/4ms5mkS)
 
-![UseCase-Diagram](https://imgur.com/a/JqDw7rW)
+![UseCase Diagram](https://imgur.com/a/JqDw7rW)
 
 ![Sequence-Diagram](image_url)
 
