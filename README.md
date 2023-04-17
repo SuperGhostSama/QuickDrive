@@ -2,21 +2,23 @@
 
 ## Table Of Content
 
-1-[Company Presentation](#Company-Presentation)
+[Company Presentation](#Company-Presentation)
 
-2-[Target Addressed by the Site](#Target-Addressed-by-the-Site)
+[Target Addressed by the Site](#Target-Addressed-by-the-Site)
 
-3-[Framework](#Framework)
+[Framework](#Framework)
 
-4-[Project Perimeter](#Project-Perimeter)
+[Project Perimeter](#Project-Perimeter)
 
-5-[Description](#Description)
+[Description](#Description)
 
-6-[Choice of Technology](#Choice-of-Technology)
+[Choice of Technology](#Choice-of-Technology)
 
-7-[Installation](#Installation)
+[Installation](#Installation)
 
-8-[Credits](#Credits)
+[Credits](#Credits)
+
+[UML Diagrams](#UML-Diagrams)
 
 ## Company Presentation
 QuickDrive is a car rental company dedicated to providing fast and convenient vehicle rental options to our customers.
@@ -62,7 +64,7 @@ Back-end: Laravel Framework 9.52.5.
 
 Libraries: SplideJs for carousel, LeafletJs for map, Spatie for roles and permissions, and ParsleyJs for form validation.
 
-##UML Diagrams 
+## UML Diagrams 
 
 ![Class Diagram](https://media.discordapp.net/attachments/1018230183834165309/1097458396359295037/Class_Diagram.png?width=1121&height=670)
 
