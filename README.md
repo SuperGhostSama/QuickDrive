@@ -2,17 +2,17 @@
 
 ## Table Of Content
 
-1-[Company Presentation](#Company Presentation)
+1-[Company Presentation](#Company-Presentation)
 
-2-[Target Addressed by the Site](#Target Addressed by the Site)
+2-[Target Addressed by the Site](#Target-Addressed-by-the-Site)
 
 3-[Framework](#Framework)
 
-4-[Project Perimeter](#Project Perimeter)
+4-[Project Perimeter](#Project-Perimeter)
 
 5-[Description](#Description)
 
-6-[Choice of Technology](#Choice of Technology)
+6-[Choice of Technology](#Choice-of-Technology)
 
 7-[Installation](#Installation)
 
