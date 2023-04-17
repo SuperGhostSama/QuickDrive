@@ -64,10 +64,10 @@ Libraries: SplideJs for carousel, LeafletJs for map, Spatie for roles and permis
 
 ##UML Diagrams 
 
-![Class Diagram](https://imgur.com/a/4ms5mkS)
+![Class Diagram](https://media.discordapp.net/attachments/1018230183834165309/1097458396359295037/Class_Diagram.png?width=1121&height=670)
 
-![UseCase Diagram](https://imgur.com/a/JqDw7rW)
+![UseCase Diagram](https://cdn.discordapp.com/attachments/1018230183834165309/1097458881657061426/Diagrame_de_cas_d_utilisation.png)
 
-![Sequence Diagram](https://media.discordapp.net/attachments/1018230183834165309/1097458396359295037/Class_Diagram.png?width=1121&height=670)
+![Sequence Diagram](https://cdn.discordapp.com/attachments/1018230183834165309/1097458843526631474/wp4371956-loading-wallpapers.jpg)
 
 
