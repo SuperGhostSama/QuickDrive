@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="iconBx">
-                    <ion-icon name="card-outline"></ion-icon>
+                    <ion-icon name="trending-up-outline"></ion-icon>
                 </div>
             </div>
         </div>
