@@ -18,7 +18,9 @@ class StatisticsController extends Controller
                 $car = Car::count();
                 $brand = Brand::count();
                 $reservation = Reservation::count();
-                return view('pages.dashboard', ['user' => $user,'car' => $car,'brand' => $brand,'reservation' => $reservation,]);
+                
+                $latestUsers= User::latest()->take(8)->get();
+                return view('pages.dashboard', ['user' => $user,'car' => $car,'brand' => $brand,'reservation' => $reservation,'latestUsers'=>$latestUsers]);
             }
             return view('errors.403');
         }

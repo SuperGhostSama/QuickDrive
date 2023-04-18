@@ -27,72 +27,16 @@
 
                   <table>
                       <tbody>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>Role</span></h4>
-                            </td>
-                        </tr>
-
+                        @foreach ($latestUsers as $latestUser)
+                          <tr>
+                              <td width="60px">
+                                  <div class="imgBx"><img src="https://picsum.photos/640/360" alt=""></div>
+                              </td>
+                              <td>
+                                  <h4>{{ $latestUser->name }} <br> <span>{{ $latestUser->email }}</span></h4>
+                              </td>
+                          </tr>
+                        @endforeach
                       </tbody>
                   </table>
                 </div>
