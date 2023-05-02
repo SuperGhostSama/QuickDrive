@@ -72,8 +72,6 @@ Libraries: SplideJs for carousel, LeafletJs for map, Spatie for roles and permis
 
 ![UseCase Diagram](https://cdn.discordapp.com/attachments/1018230183834165309/1097458881657061426/Diagrame_de_cas_d_utilisation.png)
 
-![Sequence Diagram](https://cdn.discordapp.com/attachments/1018230183834165309/1097458843526631474/wp4371956-loading-wallpapers.jpg)
-
 ## Website Preview
 
 ![Landing Page](https://media.discordapp.net/attachments/1022963358066016256/1097475667865653268/Web_capture_17-4-2023_10566_127.0.0.1.jpeg?width=302&height=670)
